@@ -11,33 +11,27 @@ function mount() {
 }
 
 describe('BootPage', () => {
-  it('draws the loading skeleton before any plugin state arrives', () => {
+  it('attaches nothing while boot has not failed', () => {
     const { el } = mount()
-    expect(el.firstElementChild?.getAttribute('data-dsh-boot')).toBe('')
-    expect(el.textContent).toContain('HARNESS')
-    expect(el.textContent).toContain('Loading plugins…')
+    expect(el.childNodes).toHaveLength(0)
   })
 
-  it('keeps loading while entries are active or loading', () => {
+  it('stays detached while entries are active or loading', () => {
     const { el, page } = mount()
     page.setTotal(2)
-    const spinner = el.querySelector<HTMLElement>('[data-dsh-boot-spinner]')
-    expect(spinner?.style.getPropertyValue('--dsh-boot-arc')).toBe('72deg')
     page.setState('a', 'active')
-    expect(spinner?.style.getPropertyValue('--dsh-boot-arc')).toBe('180deg')
     page.setState('b', 'loading')
-    expect(el.querySelector('[data-dsh-boot-spinner]')).toBe(spinner)
     page.setState('b', 'active')
-    expect(spinner?.style.getPropertyValue('--dsh-boot-arc')).toBe('288deg')
-    expect(el.textContent).toContain('Loading plugins…')
-    expect(el.textContent).not.toContain('Failed to load plugins')
+    expect(el.childNodes).toHaveLength(0)
   })
 
-  it('lists failed entries', () => {
+  it('lists failed entries once one fails', () => {
     const { el, page } = mount()
     page.setState('@deepseek-ai/dsh-client-ui-layout', 'failed')
     page.setState('ok', 'active')
     page.setState('@deepseek-ai/dsh-client-ui-tool', 'failed')
+    expect(el.firstElementChild?.getAttribute('data-dsh-boot')).toBe('')
+    expect(el.textContent).toContain('Failed to load plugins')
     expect(el.textContent).toContain('@deepseek-ai/dsh-client-ui-layout')
     expect(el.textContent).toContain('@deepseek-ai/dsh-client-ui-tool')
     expect(el.textContent).not.toContain('ok')
@@ -55,6 +49,7 @@ describe('BootPage', () => {
 
   it('detaches on disposal', () => {
     const { el, page } = mount()
+    page.fail('boom')
     page.dispose()
     expect(el.childNodes).toHaveLength(0)
   })

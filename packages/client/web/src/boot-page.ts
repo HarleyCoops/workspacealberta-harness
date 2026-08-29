@@ -27,20 +27,20 @@ export class BootPage {
   private failure: string | undefined
 
   /**
-   * Build and attach the boot page.
+   * Build the boot page without attaching it: normal boot shows no splash,
+   * and the page mounts only when {@link render} has a failure to report.
    * @param container - Application mount point.
    */
-  constructor(container: HTMLElement) {
+  constructor(private readonly container: HTMLElement) {
     this.root = div(css.boot)
     this.root.dataset.dshBoot = ''
     this.card = div(css.card)
-    this.wordmark = div(css.wordmark, 'HARNESS')
+    this.wordmark = div(css.wordmark, 'WA BOX')
     this.spinner = div(css.spinner)
     this.spinner.dataset.dshBootSpinner = ''
     this.hint = div(css.hint, 'Loading plugins…')
     this.card.append(this.wordmark, this.spinner, this.hint)
     this.root.append(this.card)
-    container.append(this.root)
     this.updateProgress()
   }
 
@@ -93,6 +93,7 @@ export class BootPage {
     for (const id of failed) report.append(div(css.failedItem, id))
     if (this.failure !== undefined) report.append(div(css.failedItem, this.failure))
     this.card.replaceChildren(this.wordmark, report)
+    if (this.root.parentElement !== this.container) this.container.append(this.root)
   }
 
   /** Grow the rotating arc monotonically as loader entries activate. */

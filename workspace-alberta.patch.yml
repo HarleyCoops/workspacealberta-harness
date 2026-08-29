@@ -1,0 +1,46 @@
+# WorkspaceAlberta / Warre & Vavasour deployment layer for official dsh.
+# Secrets are resolved from the process environment and are never stored here.
+- id: session-telemetry-otel
+  disabled: true
+
+- id: llm-deepseek
+  disabled: true
+
+- id: web-search-deepseek
+  disabled: true
+
+- id: web
+  disabled: true
+
+- id: tool-web
+  disabled: true
+
+- id: agent-default-model
+  config:
+    provider: cohere-canada
+    model: command-a-plus-05-2026
+
+- id: llm-pi-ai
+  config:
+    providers:
+      cohere-canada:
+        displayName: Cohere (Canada)
+        apiKeyEnv: COHERE_API_KEY
+        api: openai-completions
+        baseURL: https://api.cohere.ai/compatibility/v1
+        models:
+          - id: command-a-plus-05-2026
+            name: Command A+
+            contextWindow: 256000
+            maxTokens: 32768
+            input: [text]
+
+- insert:
+    - id: mcp-workspace-alberta
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        transport: streamable-http
+        serverName: workspace_alberta
+        url: https://elbowsupknivesout.warreandvavasour.com/mcp
+        headers: {}
+        failOnStartupError: false

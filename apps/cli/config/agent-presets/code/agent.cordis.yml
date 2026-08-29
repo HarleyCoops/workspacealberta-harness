@@ -246,8 +246,12 @@
 
 # The `web` service and its search provider stay in the host composition; only
 # the model-facing tool is per-session.
+# WorkspaceAlberta: the host 'web' entry is disabled by the deployment patch,
+# so this row is disabled too — it would otherwise block preset mount waiting
+# for the absent search service.
 - id: tool-web
   name: '@deepseek-ai/dsh-tool-web'
+  disabled: true
   config:
     fetch: false
     searchTimeoutMs: 60000

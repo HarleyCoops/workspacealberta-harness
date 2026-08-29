@@ -143,7 +143,7 @@ export function SidebarRoot({
                 {renderSlot('sidebar.brand.name', {}, {
                   fallback: (
                     <>
-                      <span className={css.fallbackBrandName}>DSH Local Build</span>
+                      <span className={css.fallbackBrandName}>WorkspaceAlberta</span>
                       {process.env.DSH_CLIENT_COMMIT_HASH
                         ? <span className={css.buildRevision}>{process.env.DSH_CLIENT_COMMIT_HASH}</span>
                         : null}
@@ -154,7 +154,7 @@ export function SidebarRoot({
             </span>
           </button>
         )}
-        {/* Rail resting state is the whale mark; hovering swaps in the panel
+        {/* Rail resting state is the brand mark; hovering swaps in the panel
             icon (the expand affordance, figma sidebar-hover flow). */}
         <Tooltip label={collapsed ? t('toggle.open') : t('toggle.collapse')} delayMs={500}>
           <button

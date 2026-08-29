@@ -131,7 +131,8 @@
     # session-log records onto OTLP/HTTP logs with no session-telemetry/record redaction
     # rule, so exports are the raw captured copy. The deployment stance, env
     # seams, and follow-ups are pinned in the default-off Agent Note.
-    # DSH_TELEMETRY_OTLP_URL overrides the production endpoint. A non-empty
+    # No remote collector is built in. DSH_TELEMETRY_OTLP_URL must explicitly
+    # select one before an opted-in telemetry mode can export off-machine. A non-empty
     # DSH_TELEMETRY_DISABLED — any value, including '0'/'false' — opts the
     # process out (the launchers patch the row disabled; config cannot disable
     # a row). Exports carry the harness home's anonymous user id ($DSH_HOME/.anonymous-user-id,
@@ -151,7 +152,7 @@
         mode: !!js process.env.DSH_TELEMETRY_MODE || 'DISABLED'
         shutdownTimeoutMillis: 3000
         exporter:
-          url: !!js process.env.DSH_TELEMETRY_OTLP_URL ?? 'https://harness-telemetry.deepseeksvc.com/v1/logs'
+          url: !!js process.env.DSH_TELEMETRY_OTLP_URL ?? 'http://127.0.0.1:9/v1/logs'
           compression: gzip
           timeoutMillis: 1000
         processor:
