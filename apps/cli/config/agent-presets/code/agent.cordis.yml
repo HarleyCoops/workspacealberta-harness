@@ -34,6 +34,8 @@
     text: >-
       You are a coding agent powered by the {{model}} model. Your working directory is {{cwd}}.
 
+      Never use emojis in your replies. Write in plain professional prose.
+
 - id: agent-instructions
   name: '@deepseek-ai/dsh-agent-instructions'
   config:
