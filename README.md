@@ -1,5 +1,11 @@
 # WorkspaceAlberta Harness
 
+<p align="center">
+  <img src="docs/assets/women-workers-collage.png" alt="Eight photographs of Canadian women building war industries: welding, machining, drafting, and finishing munitions, 1940-1945." width="100%">
+</p>
+
+<p align="center"><em>Canadian industrial war production, via Library and Archives Canada.</em></p>
+
 A custom, CEO-focused, enterprise-grade AI terminal for building and delivering real work.
 Forked from the MIT-licensed [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)
 (`dsh`), operated as a Warre & Vavasour product. Launch instructions live in
@@ -64,6 +70,22 @@ WorkspaceAlberta is a Canadian data-sovereignty story, end to end:
 - **The last mile: Canadian sandboxes.** Isolated execution currently depends on a non-Canadian
   sandbox provider; we are actively evaluating Canadian alternatives for the e2b sandbox role.
   When your workloads need it, that gap closes too.
+
+## AI Ethics
+
+**Warre & Vavasour does not replace human workers. We build a bigger pie for you.** Every
+capability we ship exists to amplify the people already doing the work — the same promise the
+photographs above made to the generation that industrialized this country. If a savings plan
+starts with headcount, it is not a WorkspaceAlberta plan.
+
+**Warre & Vavasour does not make apps or chatbots. Don't ask.** If this is in your business
+plan, you are thinking about New Business wrong. We build terminals that deliver real work —
+code, files, documents — not conversation widgets.
+
+**Warre & Vavasour acknowledges the astonishing resources this technology is consuming.**
+Training and inference carry real energy, water, and mineral costs. Our answer is Canadian
+infrastructure, right-sized models on hardware you own, and local data retention over redundant
+cloud sprawl — and we say the cost out loud instead of hiding it.
 
 ## Upstream: DeepSeek Harness
 
