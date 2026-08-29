@@ -17,6 +17,27 @@ surface.
 **A terminal that builds.** This is a tool for work: it writes code, files, and documents. It is
 not chatting with you. It is not your friend. Get up and get to work.
 
+## It learns your business while it works
+
+This is the feature that separates WorkspaceAlberta from every chatbot with a sidebar: **the
+terminal gets better at your industry every day it is used, and you can audit every step of how.**
+
+- **Every session leaves a full trajectory** — each prompt, decision, tool call, and result is
+  retained on-device. Nothing about how the agent reached an outcome is a mystery: the Trajectory
+  tab replays the reasoning path turn by turn.
+- **The evolution loop turns that experience into capability.** On its own cadence, the harness
+  reviews its trajectories and proposes versioned refinements — memories, prompt notes, and
+  entire skills. Four skills on the origin terminal — from Linear board operations to
+  dated finance research — were **written by the harness itself**, from real work, for real work.
+- **Nothing global ships without a human at the gate.** Automatic review may promote or archive
+  session-local entries, but global edits require explicit approval, every refinement is
+  benchmark-scored against your rubric, and every change has deterministic rollback. The model
+  proposes; the code guarantees.
+- **Learning compounds across the fleet.** Approved skills and prompt notes are plain versioned
+  files — reviewed in git, shipped to every terminal through the industry skill pack. Long-term
+  retention is a backup policy, not a research project. Your business gets an AI that remembers
+  it.
+
 ## The principle
 
 We want to know every "wouldn't it be great if" idea you have about your business — and we build
@@ -28,28 +49,21 @@ We do not build apps. We do not replace employees. What this device can do will 
 give us your best ideas and let's build a growing pie instead of thinking about reducing people.
 We amplify what is already working.
 
-## The harness that learns
+## Canadian to the metal
 
-The terminal gets better at your industry the more real work it does, and it does so with an
-auditable loop instead of opaque fine-tuning:
+WorkspaceAlberta is a Canadian data-sovereignty story, end to end:
 
-1. **Every session leaves a full trajectory** — each prompt, reasoning trace, tool call, and
-   result is retained on-device in the local session logs.
-2. **The evolution loop reviews those trajectories** (`dsh-continual-evolve`): on turn intervals
-   and compaction checkpoints it proposes versioned refinements — prompt notes, memories, skills,
-   and subagent specs — each carrying its evidence trail.
-3. **Nothing global ships without a human at the gate.** Automatic review may promote or archive
-   session-local entries, but global edits require explicit approval, every change is
-   benchmark-scored against industry rubric keys, and every refinement has deterministic
-   rollback. The model proposes; the code guarantees.
-4. **Approved learning compounds.** Prompt notes and memories are injected into real system
-   prompts (zero token cost when empty), and curated packs are plain versioned files — so an
-   industry-specific corpus distilled on one terminal can be reviewed in git and shipped to the
-   fleet. Long-term retention is a backup policy, not a research project.
-
-The `autoresearcher` skill mines accumulated session traces to feed this loop deliberately; the
-Trajectory tab shows any session's full reasoning path — how the agent actually reached its
-outcome, turn by turn.
+- **Canadian LLM, only.** The default model route is Cohere — a Canadian company — with no other
+  model provider in the deployment. Your prompts never ride a foreign model.
+- **Canadian cloud deployment.** The WorkspaceAlberta service layer is deployed on Canadian
+  cloud infrastructure.
+- **European hardware, removable Canadian data.** The terminal is a Raspberry Pi 5, manufactured
+  in Europe, fitted with **Swissbit industrial SSD storage mounted on the bottom of the device —
+  so your corporate files are physically resident on a drive you can remove and hold in your
+  hand.** Data leaves the building only when you unplug it and carry it.
+- **The last mile: Canadian sandboxes.** Isolated execution currently depends on a non-Canadian
+  sandbox provider; we are actively evaluating Canadian alternatives for the e2b sandbox role.
+  When your workloads need it, that gap closes too.
 
 ## Upstream: DeepSeek Harness
 
