@@ -121,7 +121,7 @@
 }
 
 .colorMessages {
-  --meter-tint: var(--dsw-static-blue-450);
+  --meter-tint: var(--dsw-static-deepseek-450);
 }
 
 .rows {
