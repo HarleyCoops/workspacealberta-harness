@@ -9,7 +9,7 @@ import { homedir } from 'node:os'
 import { basename, dirname, join, resolve } from 'node:path'
 
 /** Directory name for the default DeepSeek Harness home under the OS home. */
-export const DSH_HOME_DIR_NAME = '.dsh'
+export const DSH_HOME_DIR_NAME = '.workspaceAlberta'
 
 /** Stable user-facing display form for the default DeepSeek Harness home. */
 export const DEFAULT_DSH_HOME_DISPLAY = `~/${DSH_HOME_DIR_NAME}`

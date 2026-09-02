@@ -17,7 +17,8 @@ afterEach(() => {
 const t = makeTranslate(en)
 
 function renderView() {
-  return render(<AlbertaGridView t={t} /> as never)
+  // @ts-expect-error test stub only needs locale t()
+  return render(<AlbertaGridView t={t} />)
 }
 
 function stubFetch(handler: (url: string) => Response | Promise<Response> | never): void {

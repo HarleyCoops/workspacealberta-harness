@@ -49,7 +49,7 @@ pre-merge-commit:
       glob: '.agents/notes/archived/**'
       run: node_modules/.bin/tsx scripts/verify-archived-agent-notes.ts
 
-pre-push:
-  jobs:
-    - name: typecheck
-      run: pnpm run typecheck
+# Typecheck is deliberately NOT a pre-push job: it builds the host lib first
+# (~3 min), and concurrent agent builds corrupt tsc's incremental state,
+# making the gate fail intermittently on clean trees. The repository-wide
+# gate belongs to CI; wire CI before relying on push-time type coverage.
