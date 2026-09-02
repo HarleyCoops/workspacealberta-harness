@@ -62,6 +62,6 @@
         headers: {}
         failOnStartupError: false
 
-    # Alberta Grid live AESO Three.js conversation view (tab label: Grid)
+    # Alberta Grid v2 Wilke-honest AESO conversation view (tab label: Grid)
     - id: ui-alberta-grid
       name: '@workspacealberta/ui-alberta-grid'
