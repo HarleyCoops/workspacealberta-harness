@@ -115,7 +115,7 @@ export function fuelBarSpecs(fuels: readonly FuelRow[], ail: number): FuelBarSpe
     return {
       id,
       label: row.label,
-      note: row.note,
+      ...(row.note === undefined ? {} : { note: row.note }),
       mw: row.tng,
       pctOfLoad: ail > 0 ? (row.tng / ail) * 100 : null,
       color: FUEL_COLORS[id],
