@@ -1,4 +1,4 @@
-# WorkspaceAlberta / Warre & Vavasour deployment layer for official dsh.
+# workspaceAlberta / Warre & Vavasour deployment layer for official dsh.
 # Secrets are resolved from the process environment and are never stored here.
 #
 # Web tooling runs entirely on our side: the seam selects the Cohere v2

@@ -1,4 +1,4 @@
-# WorkspaceAlberta Harness
+# workspaceAlberta Harness
 
 <p align="center">
   <img src="docs/assets/women-workers-collage.png" alt="Eight photographs of Canadian women building war industries: welding, machining, drafting, and finishing munitions, 1940-1945." width="100%">
@@ -11,13 +11,13 @@ Forked from the MIT-licensed [DeepSeek Harness](https://github.com/deepseek-ai/d
 (`dsh`), operated as a Warre & Vavasour product. Launch instructions live in
 [WORKSPACE_ALBERTA.md](WORKSPACE_ALBERTA.md).
 
-## What WorkspaceAlberta is
+## What workspaceAlberta is
 
-WorkspaceAlberta is two things working as one.
+workspaceAlberta is two things working as one.
 
 **A service that details industrial work available today through
 [CanadaBuys](https://canadabuys.canada.ca)** — delivered straight into the terminal through the
-WorkspaceAlberta MCP server, so the opportunities and the machine that acts on them are the same
+workspaceAlberta MCP server, so the opportunities and the machine that acts on them are the same
 surface.
 
 **A terminal that builds.** This is a tool for work: it writes code, files, and documents. It is
@@ -25,7 +25,7 @@ not chatting with you. It is not your friend. Get up and get to work.
 
 ## It learns your business while it works
 
-This is the feature that separates WorkspaceAlberta from every chatbot with a sidebar: **the
+This is the feature that separates workspaceAlberta from every chatbot with a sidebar: **the
 terminal gets better at your industry every day it is used, and you can audit every step of how.**
 
 - **Every session leaves a full trajectory** — each prompt, decision, tool call, and result is
@@ -47,7 +47,7 @@ terminal gets better at your industry every day it is used, and you can audit ev
 ## The principle
 
 We want to know every "wouldn't it be great if" idea you have about your business — and we build
-them, with you, like a family doctor. The AI lab behind WorkspaceAlberta, **Warre & Vavasour**,
+them, with you, like a family doctor. The AI lab behind workspaceAlberta, **Warre & Vavasour**,
 manages all the spinning plates to keep the tools running, so the CEO works only on executing new
 ideas in the workspace.
 
@@ -57,11 +57,11 @@ We amplify what is already working.
 
 ## Canadian to the metal
 
-WorkspaceAlberta is a Canadian data-sovereignty story, end to end:
+workspaceAlberta is a Canadian data-sovereignty story, end to end:
 
 - **Canadian LLM, only.** The default model route is Cohere — a Canadian company — with no other
   model provider in the deployment. Your prompts never ride a foreign model.
-- **Canadian cloud deployment.** The WorkspaceAlberta service layer is deployed on Canadian
+- **Canadian cloud deployment.** The workspaceAlberta service layer is deployed on Canadian
   cloud infrastructure.
 - **European hardware, removable Canadian data.** The terminal is a Raspberry Pi 5, manufactured
   in Europe, fitted with **Swissbit industrial SSD storage mounted on the bottom of the device —
@@ -76,7 +76,7 @@ WorkspaceAlberta is a Canadian data-sovereignty story, end to end:
 **Warre & Vavasour does not replace human workers. We build a bigger pie for you.** Every
 capability we ship exists to amplify the people already doing the work — the same promise the
 photographs above made to the generation that industrialized this country. If a savings plan
-starts with headcount, it is not a WorkspaceAlberta plan.
+starts with headcount, it is not a workspaceAlberta plan.
 
 **Warre & Vavasour does not make apps or chatbots. Don't ask.** If this is in your business
 plan, you are thinking about New Business wrong. We build terminals that deliver real work —
@@ -92,12 +92,12 @@ desktop device that genuinely accelerates ideas to revenue.
 So yes: we acknowledge the cost, we say it out loud instead of hiding it, and our answer stays
 Canadian infrastructure, right-sized models on hardware you own, and local data retention over
 redundant cloud sprawl. Because it is 1834, and the railroad has been built. The tracks arrive
-Tuesday. The world as we know it is all changing. WorkspaceAlberta is the way to stay ahead of
+Tuesday. The world as we know it is all changing. workspaceAlberta is the way to stay ahead of
 these changes.
 
 ## Upstream: DeepSeek Harness
 
-This repository is the upstream `dsh` codebase carrying the WorkspaceAlberta deployment layer
+This repository is the upstream `dsh` codebase carrying the workspaceAlberta deployment layer
 (branding, model route, presets, and deployment patch on the `workspace-alberta` branch). The
 upstream project — architecture where everything is a plugin, powered by
 [Cordis](https://github.com/cordiverse/cordis) — is in developer preview and iterates rapidly;

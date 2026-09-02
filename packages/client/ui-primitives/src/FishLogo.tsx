@@ -1,4 +1,4 @@
-// WorkspaceAlberta monogram: the fallback mark rendered whenever a surface's
+// workspaceAlberta monogram: the fallback mark rendered whenever a surface's
 // brand slot is unfilled. Artwork matches ui-brand-official's OfficialBrandMark
 // so a filled and an unfilled slot look identical.
 //

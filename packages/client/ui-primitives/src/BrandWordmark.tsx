@@ -1,4 +1,4 @@
-// WorkspaceAlberta brand wordmark: the monogram plus the product name in one
+// workspaceAlberta brand wordmark: the monogram plus the product name in one
 // svg. Native 182x24, matching the upstream artwork's box so every consumer's
 // layout math is unchanged. Ink rides currentColor.
 //
@@ -53,7 +53,7 @@ export function BrandWordmark({ size = 24, className, includeMark = true }: Bran
         letterSpacing="-0.2"
         fill="currentColor"
       >
-        WorkspaceAlberta
+        workspaceAlberta
       </text>
     </svg>
   )

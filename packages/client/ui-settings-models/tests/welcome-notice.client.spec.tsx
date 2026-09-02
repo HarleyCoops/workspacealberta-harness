@@ -88,8 +88,8 @@ function mount(
 describe('WelcomeNotice', () => {
   it('uses the exact owner copy in both GUI locales', () => {
     expect(WELCOME_NOTICE_COPY.en).toEqual({
-      title: 'WorkspaceAlberta Notice',
-      body: 'WorkspaceAlberta is an independent Warre & Vavasour deployment built on the MIT-licensed upstream dsh plugin runtime.\n\nIt is not an official upstream product and does not use upstream trademarks or product icons.',
+      title: 'workspaceAlberta Notice',
+      body: 'workspaceAlberta is an independent Warre & Vavasour deployment built on the MIT-licensed upstream dsh plugin runtime.\n\nIt is not an official upstream product and does not use upstream trademarks or product icons.',
       continueLabel: 'Continue',
     })
     expect(en.welcomeBody).toBe(WELCOME_NOTICE_COPY.en.body)

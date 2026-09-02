@@ -78,7 +78,7 @@ const MARKDOWN_FIXTURE = [
   '| history | rendered |',
   '| streaming | stable |',
   '',
-  '[WorkspaceAlberta](https://www.warreandvavasour.com)',
+  '[workspaceAlberta](https://www.warreandvavasour.com)',
   '',
   '```ts',
   'const markdown = true',
@@ -253,11 +253,11 @@ const READ_SAMPLE_TEXT = READ_SAMPLE_SOURCE.map((text, index) => `${READ_SAMPLE_
  * search view minus its wire discriminants.
  */
 const WEB_SEARCH_RESULT: Omit<Extract<ToolResultView, { card: 'web'; kind: 'search' }>, 'card' | 'kind'> = {
-  answer: 'WorkspaceAlberta puts **CanadaBuys and Alberta Purchasing Connection behind one search**, matched against your shop profile.',
+  answer: 'workspaceAlberta puts **CanadaBuys and Alberta Purchasing Connection behind one search**, matched against your shop profile.',
   sources: [
     {
-      url: 'https://github.com/HarleyCoops/WorkspaceAlberta',
-      title: 'WorkspaceAlberta — Canadian procurement intelligence',
+      url: 'https://github.com/HarleyCoops/workspaceAlberta',
+      title: 'workspaceAlberta — Canadian procurement intelligence',
       snippet: 'Federal and Alberta tender notices normalized into one shape, with profile matching, deadline ranking, and a daily bid brief.',
       publishedAt: '2026-07-01',
     },
@@ -540,7 +540,7 @@ function buildAlphaLog(): SessionEvent[] {
   // the todo turn for the same reason turn 66 is: the standing plan retires at
   // the next turn/start, so a turn after it would empty the dock's plan strip.
   toolTurn(70, 'web_search', '{"queries":["alberta structural steel tender"]}', 'Search results for alberta structural steel tender.')
-  toolTurn(71, 'web_fetch', '{"url":"https://www.warreandvavasour.com"}', '# WorkspaceAlberta\n\nCanadian public demand, in one search.')
+  toolTurn(71, 'web_fetch', '{"url":"https://www.warreandvavasour.com"}', '# workspaceAlberta\n\nCanadian public demand, in one search.')
 
   // Turn 72: max-tokens sample — the provider ends the turn at its output cap
   // mid-sentence, so the chat flow must render the turn-max-tokens notice
