@@ -10,7 +10,7 @@ import type {
   BootManifest, ClientModuleCreateOptions, ClientModuleSystem, DshWindow,
 } from '@deepseek-ai/dsh-client-modules/client'
 import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
-import { BootPage } from './boot-page.ts'
+import { BootPage, displayPluginId } from './boot-page.ts'
 import { getStaticModules } from './seed.ts'
 import { STATE_LABELS } from './loader-status.ts'
 import './base.css'
@@ -122,7 +122,9 @@ export class AppWebEntry {
   private assertEntriesActive(ctx: Context): void {
     const failures: string[] = []
     for (const entry of ctx.loader.entries()) {
-      const name = entry.options.name
+      // De-scoped for display: the boot page is user-facing, and the npm scope
+      // is a packaging fact of the local module transport, not branding.
+      const name = displayPluginId(entry.options.name)
       if (entry.fiber === undefined) {
         failures.push(`${name}: import failed (see console for the import error)`)
         continue

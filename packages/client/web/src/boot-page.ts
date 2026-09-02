@@ -14,6 +14,23 @@ function div(className: string | undefined, text?: string): HTMLDivElement {
   return el
 }
 
+/**
+ * User-facing plugin id. Loader-entry names are npm-scoped module addresses
+ * (`@vendor/dsh-…`); the scope is an internal packaging fact of the local
+ * plugin transport, never product branding, so every id the boot page can
+ * show is de-scoped for display while loader ids stay canonical.
+ * @param id - Loader entry name or free text carrying one.
+ * @returns the id without any leading npm scope.
+ */
+export function displayPluginId(id: string): string {
+  return id.replace(/^@[\w.-]+\//u, '')
+}
+
+/** De-scope every npm-scoped id inside a free-text failure report line. */
+function displayScopeStripped(text: string): string {
+  return text.replace(/@[\w.-]+\//gu, '')
+}
+
 /** Kernel-owned page mounted below the application's root element. */
 export class BootPage {
   private readonly root: HTMLDivElement
@@ -90,8 +107,8 @@ export class BootPage {
     }
     const report = div(css.failed)
     report.append(div(css.failedTitle, 'Failed to load plugins'))
-    for (const id of failed) report.append(div(css.failedItem, id))
-    if (this.failure !== undefined) report.append(div(css.failedItem, this.failure))
+    for (const id of failed) report.append(div(css.failedItem, displayPluginId(id)))
+    if (this.failure !== undefined) report.append(div(css.failedItem, displayScopeStripped(this.failure)))
     this.card.replaceChildren(this.wordmark, report)
     if (this.root.parentElement !== this.container) this.container.append(this.root)
   }
