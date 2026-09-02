@@ -1,29 +1,50 @@
-/** Alberta Grid conversation view: live AESO Three.js / 2D viz. */
+/** Alberta Grid v2 conversation view: Wilke-honest 2D encodings plus optional orbit. */
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactElement } from 'react'
 import type { ConvViewProps } from '@deepseek-ai/dsh-client-ui-conversation/client'
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
-import { fetchGrid, priceBand, type GridSnapshot } from './aeso.ts'
+import { fetchGrid, type GridSnapshot } from './aeso.ts'
+import {
+  FUEL_COLORS,
+  POLL_MS,
+  PRICE_SCALE_MAX,
+  formatMw,
+  formatPctOfLoad,
+  formatPrice,
+  fuelBarSpecs,
+  intertieBarSpecs,
+  orbitMode,
+  orbitNoteKey,
+  pollStatus,
+  preferLiteScene,
+  priceColor,
+  priceMarker,
+  tooltipOffset,
+  type FuelBarSpec,
+  type FuelId,
+  type IntertieBarSpec,
+  type PollStatus,
+} from './encodings.ts'
 import { createGridScene, type HoverInfo, type SceneHandle } from './scene.ts'
 import type {} from './locales.ts'
 import css from './AlbertaGridView.module.css'
 
-const POLL_MS = 90_000
-
+/** Conversation-view runtime share plus the alberta-grid locale seat. */
 export type AlbertaGridViewProps = ConvViewProps & PropsLocale<'alberta-grid'>
 
-function formatMw(mw: number): string {
-  return `${Math.round(mw).toLocaleString('en-CA')} MW`
-}
-
-function formatPrice(price: number): string {
-  return `$${price.toFixed(2)}`
+const POLL_COPY: Record<PollStatus, 'hud.loading' | 'hud.pollLive' | 'hud.pollStale' | 'hud.pollError'> = {
+  loading: 'hud.loading',
+  live: 'hud.pollLive',
+  stale: 'hud.pollStale',
+  error: 'hud.pollError',
 }
 
 /**
- * Full-height Grid tab: polls Railway CSD/price, drives Three.js (or 2D fallback).
+ * Full-height Grid tab: aligned 2D bars are always the primary encoding.
+ * @param props - conversation view runtime share plus the alberta-grid locale seat.
+ * @returns the Grid tab tree.
  */
-export function AlbertaGridView(props: AlbertaGridViewProps): JSX.Element {
+export function AlbertaGridView(props: AlbertaGridViewProps): ReactElement {
   const { t } = props
   const stageRef = useRef<HTMLDivElement>(null)
   const sceneRef = useRef<SceneHandle | null>(null)
@@ -31,7 +52,9 @@ export function AlbertaGridView(props: AlbertaGridViewProps): JSX.Element {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [hover, setHover] = useState<HoverInfo | null>(null)
-  const [mode, setMode] = useState<'three' | 'canvas2d'>('three')
+  const [selected, setSelected] = useState<string | null>(null)
+  const [orbit, setOrbit] = useState(false)
+  const [now, setNow] = useState(() => Date.now())
 
   const load = useCallback(async () => {
     try {
@@ -47,95 +70,248 @@ export function AlbertaGridView(props: AlbertaGridViewProps): JSX.Element {
   }, [])
 
   useEffect(() => {
-    const host = stageRef.current
-    if (!host) return
-    const scene = createGridScene(host)
-    sceneRef.current = scene
-    setMode(scene.mode)
-    scene.onHover(setHover)
-    if (snapshot) scene.setSnapshot(snapshot)
-    const onResize = (): void => scene.resize()
-    const ro = new ResizeObserver(onResize)
-    ro.observe(host)
-    window.addEventListener('resize', onResize)
-    return () => {
-      ro.disconnect()
-      window.removeEventListener('resize', onResize)
-      scene.dispose()
-      sceneRef.current = null
-    }
-    // Mount once per host lifetime; snapshot updates flow through setSnapshot.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    void load()
+    /* v8 ignore next -- interval reuses load(); mount and Refresh cover the fetch */
+    const id = window.setInterval(() => { void load() }, POLL_MS)
+    return () => { window.clearInterval(id) }
+  }, [load])
+
+  useEffect(() => {
+    /* v8 ignore next -- clock tick only ages pollStatus; encodings tests pin that */
+    const id = window.setInterval(() => { setNow(Date.now()) }, 5_000)
+    return () => { window.clearInterval(id) }
   }, [])
 
   useEffect(() => {
-    void load()
-    const id = window.setInterval(() => { void load() }, POLL_MS)
-    return () => window.clearInterval(id)
-  }, [load])
+    const host = stageRef.current
+    /* v8 ignore next -- the stage node is committed before this effect runs */
+    if (!host) return
+    const scene = createGridScene(host, { lite: preferLiteScene() })
+    sceneRef.current = scene
+    setOrbit(scene !== null)
+    /* v8 ignore start -- WebGL scene handle is null in jsdom; 2D bars remain the primary encoding. */
+    if (scene) {
+      scene.onHover(setHover)
+      scene.setSnapshot(snapshot)
+      const onResize = (): void => { scene.resize() }
+      const ro = new ResizeObserver(onResize)
+      ro.observe(host)
+      window.addEventListener('resize', onResize)
+      return () => {
+        ro.disconnect()
+        window.removeEventListener('resize', onResize)
+        scene.dispose()
+        sceneRef.current = null
+      }
+    }
+    /* v8 ignore stop */
+    return () => {
+      sceneRef.current = null
+    }
+    // Mount once per host lifetime; snapshot updates flow through setSnapshot.
+  }, [])
 
   useEffect(() => {
     sceneRef.current?.setSnapshot(snapshot)
   }, [snapshot])
 
+  const fuels = useMemo(
+    () => fuelBarSpecs(snapshot?.csd.fuels ?? [], snapshot?.csd.ail ?? 0),
+    [snapshot],
+  )
+  const interties = useMemo(
+    () => intertieBarSpecs(snapshot?.csd.interties ?? []),
+    [snapshot],
+  )
+  const status = pollStatus({
+    fetchedAt: snapshot?.fetchedAt ?? null,
+    now,
+    error,
+    loading,
+  })
   const price = snapshot?.price?.price ?? null
-  const band = price === null ? null : priceBand(price)
-  const bandClass = band === 'cool' ? css.cool : band === 'amber' ? css.amber : band === 'hot' ? css.hot : undefined
+  const priceCss = price === null ? undefined : priceColor(price)
+  const marker = price === null ? 0 : priceMarker(price)
+
+  const showTip = (info: HoverInfo | null): void => { setHover(info) }
 
   return (
-    <div className={css.root} data-view="alberta-grid">
-      <div className={css.stage} ref={stageRef} />
-      <div className={css.hud}>
-        <div className={css.topRow}>
-          <div className={css.card}>
-            <h2 className={css.title}>{t('hud.title')}</h2>
-            <p className={css.meta}>
-              {snapshot?.csd.lastUpdate
-                ? `Last update: ${snapshot.csd.lastUpdate}`
-                : loading ? t('hud.loading') : '—'}
-            </p>
-            {error !== null && <p className={`${css.meta} ${css.error}`}>{t('hud.error')}: {error}</p>}
-            <div className={css.metrics}>
-              <div className={css.metric}>
-                <label>{t('hud.ail')}</label>
-                <strong>{snapshot ? formatMw(snapshot.csd.ail) : '—'}</strong>
-              </div>
-              <div className={css.metric}>
-                <label>{t('hud.price')}</label>
-                <strong className={bandClass}>
-                  {price === null ? '—' : formatPrice(price)}
-                </strong>
-              </div>
+    <div className={css.root} data-view="alberta-grid" data-encoding="wilke-v2" data-poll={status}>
+      <header className={css.header}>
+        <div className={css.titleBlock}>
+          <h2 className={css.title}>{t('hud.title')}</h2>
+          <span className={css.version}>{t('hud.version')}</span>
+          <p className={`${css.poll} ${status === 'live' ? css.pollLive : css.pollWarn}`}>
+            {t(POLL_COPY[status])}
+          </p>
+          {error !== null && <p className={css.error}>{t('hud.error')}: {error}</p>}
+        </div>
+        <div className={css.actions}>
+          <button type="button" className={css.button} onClick={() => { void load() }}>
+            {t('hud.refresh')}
+          </button>
+        </div>
+      </header>
+
+      <section className={css.metrics}>
+        <div className={css.card}>
+          <span className={css.metricLabel}>{t('hud.ail')}</span>
+          <p className={css.ailValue} data-metric="ail">
+            {snapshot ? formatMw(snapshot.csd.ail) : '—'}
+          </p>
+        </div>
+        <div className={css.card}>
+          <span className={css.metricLabel}>{t('hud.price')}</span>
+          <p className={css.priceValue} data-metric="price" style={priceCss ? { color: priceCss } : undefined}>
+            {price === null ? '—' : formatPrice(price)}
+          </p>
+          {price !== null && (
+            <div className={css.scale} aria-hidden="true">
+              <span className={css.marker} style={{ left: `${marker * 100}%` }} />
             </div>
-            <span className={css.badge}>{t('hud.solarNote')}</span>
-            {mode === 'canvas2d' && <span className={css.badge}>{t('hud.fallback')}</span>}
-          </div>
-          <div className={css.actions}>
-            <button type="button" className={css.button} onClick={() => { void load() }}>
-              {t('hud.refresh')}
-            </button>
-          </div>
+          )}
+          {price !== null && (
+            <div className={css.scaleLabels}>
+              <span>$0</span>
+              <span>$40</span>
+              <span>$100</span>
+              <span>${PRICE_SCALE_MAX}+</span>
+            </div>
+          )}
         </div>
-        <div className={css.bottomRow}>
-          <div className={css.card}>
-            <p className={css.meta}>
-              Gen {snapshot ? formatMw(snapshot.csd.totalNetGeneration) : '—'}
-              {' · '}
-              Interchange {snapshot ? formatMw(snapshot.csd.netActualInterchange) : '—'}
-              {snapshot?.price?.dateHe ? ` · HE ${snapshot.price.dateHe}` : ''}
-            </p>
-          </div>
+      </section>
+
+      <section className={css.section} aria-label={t('hud.generation')}>
+        <h3 className={css.sectionTitle}>{t('hud.generation')}</h3>
+        {fuels.map(bar => (
+          <FuelRow
+            key={bar.id}
+            bar={bar}
+            selected={selected === bar.id}
+            onSelect={setSelected}
+            onHover={showTip}
+          />
+        ))}
+        <div className={css.legend}>
+          {(Object.keys(FUEL_COLORS) as FuelId[]).map(id => (
+            <span key={id} className={css.swatch}>
+              <i style={{ background: FUEL_COLORS[id] }} />
+              {fuels.find(row => row.id === id)?.label ?? id}
+            </span>
+          ))}
         </div>
-      </div>
+        <p className={css.note}>{t('hud.solarNote')}</p>
+      </section>
+
+      <section className={css.section} aria-label={t('hud.intertie')}>
+        <h3 className={css.sectionTitle}>{t('hud.intertie')}</h3>
+        <div className={css.axis}>
+          <span>{t('hud.import')}</span>
+          <span>0</span>
+          <span>{t('hud.export')}</span>
+        </div>
+        {interties.map(bar => (
+          <IntertieRow
+            key={bar.id}
+            bar={bar}
+            selected={selected === bar.id}
+            onSelect={setSelected}
+            onHover={showTip}
+          />
+        ))}
+      </section>
+
+      <section className={css.section}>
+        <h3 className={css.sectionTitle}>{t('hud.orbitTitle')}</h3>
+        <p className={css.note}>{t(orbitNoteKey(orbit))}</p>
+        <div className={css.orbit}>
+          <div className={css.stage} ref={stageRef} data-orbit={orbitMode(orbit)} />
+        </div>
+      </section>
+
       {hover !== null && (
         <div className={css.tooltip} style={{ left: hover.x, top: hover.y }}>
           <div><strong>{hover.label}</strong></div>
           <div>{formatMw(hover.mw)}</div>
-          {hover.pctOfLoad !== null && (
-            <div>{hover.pctOfLoad.toFixed(1)}% of AIL</div>
-          )}
+          {hover.pctOfLoad !== null && <div>{formatPctOfLoad(hover.pctOfLoad)}</div>}
         </div>
       )}
     </div>
+  )
+}
+
+function FuelRow(props: {
+  readonly bar: FuelBarSpec
+  readonly selected: boolean
+  readonly onSelect: (id: string) => void
+  readonly onHover: (info: HoverInfo | null) => void
+}): ReactElement {
+  const { bar, selected, onSelect, onHover } = props
+  const label = bar.note ? `${bar.label} (${bar.note})` : bar.label
+  const emit = (el: HTMLElement): void => {
+    const { x, y } = tooltipOffset(el, el.closest('[data-view="alberta-grid"]'))
+    onHover({ id: bar.id, label, mw: bar.mw, pctOfLoad: bar.pctOfLoad, x, y })
+  }
+  return (
+    <button
+      type="button"
+      className={css.fuelRow}
+      data-fuel={bar.id}
+      data-selected={selected ? 'true' : 'false'}
+      onClick={() => { onSelect(bar.id) }}
+      onMouseEnter={(ev) => { emit(ev.currentTarget) }}
+      onFocus={(ev) => { emit(ev.currentTarget) }}
+      onMouseLeave={() => { onHover(null) }}
+      onBlur={() => { onHover(null) }}
+    >
+      <span className={css.fuelName}>{bar.label}</span>
+      <span className={css.track}>
+        <span className={css.fill} style={{ width: `${bar.length * 100}%`, background: bar.color }} />
+      </span>
+      <span className={css.fuelNums}>
+        {formatMw(bar.mw)}
+        {bar.pctOfLoad !== null ? ` · ${formatPctOfLoad(bar.pctOfLoad)}` : ''}
+      </span>
+    </button>
+  )
+}
+
+function IntertieRow(props: {
+  readonly bar: IntertieBarSpec
+  readonly selected: boolean
+  readonly onSelect: (id: string) => void
+  readonly onHover: (info: HoverInfo | null) => void
+}): ReactElement {
+  const { bar, selected, onSelect, onHover } = props
+  const emit = (el: HTMLElement): void => {
+    const { x, y } = tooltipOffset(el, el.closest('[data-view="alberta-grid"]'))
+    onHover({ id: bar.id, label: bar.label, mw: Math.abs(bar.mw), pctOfLoad: null, x, y })
+  }
+  const width = `${(bar.length / 2) * 100}%`
+  const style = bar.side === 'export'
+    ? { left: '50%', width }
+    : bar.side === 'import'
+      ? { right: '50%', width }
+      : { left: '50%', width: '0%' }
+  const fillClass = bar.side === 'import' ? css.importFill : css.exportFill
+  return (
+    <button
+      type="button"
+      className={css.intertieRow}
+      data-intertie={bar.id}
+      data-selected={selected ? 'true' : 'false'}
+      onClick={() => { onSelect(bar.id) }}
+      onMouseEnter={(ev) => { emit(ev.currentTarget) }}
+      onFocus={(ev) => { emit(ev.currentTarget) }}
+      onMouseLeave={() => { onHover(null) }}
+      onBlur={() => { onHover(null) }}
+    >
+      <span className={css.intertieName}>{bar.label}</span>
+      <span className={css.signedTrack}>
+        <span className={css.zero} />
+        <span className={`${css.signedFill} ${fillClass}`} style={style} />
+      </span>
+      <span className={css.intertieNums}>{formatMw(bar.mw)}</span>
+    </button>
   )
 }

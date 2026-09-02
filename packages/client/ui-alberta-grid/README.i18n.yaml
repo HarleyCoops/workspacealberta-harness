@@ -1,3 +1,6 @@
-# Bilingual-pair consistency record (docs/i18n/README.md)
-README.md: b64602152439b6d2d03e437140a7279f7d2b816e
-README.zh.md: 4a5d89126a086e6e8498c853cb9d153abb4bdf73
+# Bilingual-pair consistency record (docs/i18n/README.md): the git blob hash of each
+# side as of the last confirmed-consistent state. Both languages carry equal authority;
+# after editing either side, bring the other along and re-record with:
+#   pnpm run verify-translation-pairing --write packages/client/ui-alberta-grid/README.md
+README.md: 114000ce4494bb7fe3c7b561024005c4c75713db
+README.zh.md: be9ec109ed3423ee2581fa534306adb690cda20e
