@@ -1,9 +1,14 @@
 // @vitest-environment jsdom
 import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { makeTranslate } from '@deepseek-ai/dsh-client-test-runtime'
+import {
+  bindSnapshotSelector, conversationSnapshot, makeTranslate, workspaceListState,
+} from '@deepseek-ai/dsh-client-test-runtime'
+import {
+  createSnapshotStore, type SessionId, type SessionListState, type WorkspaceListState,
+} from '@deepseek-ai/dsh-client-runtime/client'
 import { CSD_URL, PRICE_URL } from '../src/client/aeso.ts'
-import { AlbertaGridView } from '../src/client/AlbertaGridView.tsx'
+import { AlbertaGridView, type AlbertaGridViewProps } from '../src/client/AlbertaGridView.tsx'
 import { en } from '../src/client/locales.ts'
 import { CSD_FIXTURE, PRICE_EMPTY, PRICE_FIXTURE } from './fixtures.ts'
 
@@ -15,9 +20,46 @@ afterEach(() => {
 })
 
 const t = makeTranslate(en)
+const SID = 'grid-test' as SessionId
+
+function emptySessions() {
+  return bindSnapshotSelector(createSnapshotStore<SessionListState>({
+    ids: [], byId: {}, current: undefined, phase: 'ready',
+    subagentsByParent: {}, jobsBySession: {}, currentAddress: undefined,
+  }))
+}
+
+function emptyWorkspaces() {
+  return bindSnapshotSelector(createSnapshotStore<WorkspaceListState>(workspaceListState()))
+}
+
+/**
+ * Conversation.view session kit the outlet would inject.
+ * This view reads only `t`.
+ */
+function gridViewProps(): AlbertaGridViewProps {
+  return {
+    sessionId: SID,
+    useSession: bindSnapshotSelector(createSnapshotStore(conversationSnapshot(SID))),
+    useSessions: emptySessions(),
+    useWorkspaces: emptyWorkspaces(),
+    useProjection: () => undefined,
+    useInput: () => {
+      throw new Error('unused')
+    },
+    inputActions: {
+      setDraft: () => {},
+      addImages: () => true,
+      removeImage: () => {},
+      pruneImages: () => {},
+      submit: () => {},
+    },
+    t,
+  }
+}
 
 function renderView() {
-  return render(<AlbertaGridView t={t} /> as never)
+  return render(<AlbertaGridView {...gridViewProps()} />)
 }
 
 function stubFetch(handler: (url: string) => Response | Promise<Response> | never): void {
