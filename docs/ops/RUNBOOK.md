@@ -48,11 +48,10 @@ profile's credential references; nothing durable lives outside
 
 ## Secrets
 
-- `.env` (repo root, gitignored): `COHERE_API_KEY`, `COMPOSIO_API_KEY`.
-  The service loads it via `EnvironmentFile`.
-- The Composio MCP header is `process.env.COMPOSIO_API_KEY` in
-  `~/.workspaceAlberta/profiles/web/cordis.patch.yml` — never paste a literal
-  key there again.
+- `.env` (repo root, gitignored): `COHERE_API_KEY`. The service loads it via
+  `EnvironmentFile`. Composio is intentionally absent: it is the
+  WorkspaceAlberta connection layer elsewhere, never a harness tool surface —
+  do not re-add an `mcp-composio` row to the profile.
 - Rotation: replace the value in `.env`, then
   `systemctl --user restart workspacealberta-harness`.
 - Search/model key separation: create a second Cohere key and set
