@@ -5,7 +5,6 @@ import type { ConvViewProps } from '@deepseek-ai/dsh-client-ui-conversation/clie
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
 import { fetchGrid, type GridSnapshot } from './aeso.ts'
 import {
-  FUEL_COLORS,
   POLL_MS,
   PRICE_SCALE_MAX,
   formatMw,
@@ -21,7 +20,6 @@ import {
   priceMarker,
   tooltipOffset,
   type FuelBarSpec,
-  type FuelId,
   type IntertieBarSpec,
   type PollStatus,
 } from './encodings.ts'
@@ -193,10 +191,10 @@ export function AlbertaGridView(props: AlbertaGridViewProps): ReactElement {
           />
         ))}
         <div className={css.legend}>
-          {(Object.keys(FUEL_COLORS) as FuelId[]).map(id => (
-            <span key={id} className={css.swatch}>
-              <i style={{ background: FUEL_COLORS[id] }} />
-              {fuels.find(row => row.id === id)?.label ?? id}
+          {fuels.map(row => (
+            <span key={row.id} className={css.swatch}>
+              <i style={{ background: row.color }} />
+              {row.label}
             </span>
           ))}
         </div>

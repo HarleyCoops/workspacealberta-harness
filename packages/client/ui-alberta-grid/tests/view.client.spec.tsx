@@ -79,7 +79,13 @@ describe('AlbertaGridView', () => {
     expect(document.querySelector('[data-poll]')?.getAttribute('data-poll')).toBe('error')
     first.unmount()
 
-    vi.stubGlobal('fetch', vi.fn(() => Promise.reject('string-fail')))
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(() => {
+        // oxlint-disable-next-line typescript/prefer-promise-reject-errors -- view String(err) path
+        return Promise.reject('string-fail')
+      }),
+    )
     renderView()
     await waitFor(() => {
       expect(screen.getByText(/string-fail/)).toBeTruthy()

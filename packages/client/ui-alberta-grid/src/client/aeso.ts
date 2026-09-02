@@ -43,7 +43,7 @@ function unquote(cell: string): string {
   return t
 }
 
-function parseCsvLine(line: string): string[] {
+function parseCsvLine(line: string): [string, ...string[]] {
   const out: string[] = []
   let cur = ''
   let inQ = false
@@ -62,7 +62,7 @@ function parseCsvLine(line: string): string[] {
     cur += ch
   }
   out.push(cur)
-  return out.map(unquote)
+  return out.map(unquote) as [string, ...string[]]
 }
 
 function num(value: string | undefined): number | null {
@@ -96,11 +96,15 @@ export function parseCsd(text: string): CsdSnapshot {
   for (const line of lines) {
     if (line.toLowerCase().includes('last update')) {
       const m = line.match(/Last Update\s*:\s*(.+?)"?$/i) ?? line.match(/Last Update\s*:\s*(.+)$/i)
-      if (m) lastUpdate = (m[1] ?? '').replace(/"/g, '').trim()
+      if (m) {
+        const stamp = m[1]
+        /* v8 ignore next -- both Last Update patterns capture group 1 */
+        lastUpdate = (stamp ?? '').replace(/"/g, '').trim()
+      }
       continue
     }
     const cells = parseCsvLine(line)
-    const key = cells[0] ?? ''
+    const key = cells[0]
     if (key === 'ASSET' || key.includes('<center>')) { inAssetBlock = true; continue }
     if (inAssetBlock) continue
 
@@ -150,7 +154,7 @@ export function parsePrice(text: string): PriceSnapshot | null {
     const price = num(cells[1])
     if (price === null) continue
     return {
-      dateHe: cells[0] ?? '',
+      dateHe: cells[0],
       price,
       ravg30: num(cells[2]),
       ailDemand: num(cells[3]),
