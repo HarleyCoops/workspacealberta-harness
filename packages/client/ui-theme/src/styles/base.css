@@ -1,13 +1,22 @@
 /* Base variables referenced by the token sheets and component CSS but defined
  * upstream (deepsuite theme/global.css) — supplied here so the composite
- * --dsw-font-* variables resolve and motion rides the upstream curve. Code
- * font stack deliberately omits a bare `monospace` tail (Windows CJK falls
- * back to SimSun otherwise). */
+ * --dsw-font-* variables resolve and motion rides the upstream curve.
+ *
+ * Font stacks follow the ZCode desktop design: system UI fonts first
+ * (ui-sans-serif/system-ui resolve SF Pro / Segoe UI / the Linux desktop
+ * default), with the CJK families retained ahead of the generic so zh-CN
+ * copy never falls through to a Latin-only face, and the emoji faces
+ * appended after the generic per ZCode. The code stack keeps ZCode's
+ * ui-monospace-first ordering but still deliberately omits a bare
+ * `monospace` tail (Windows CJK falls back to SimSun otherwise). */
 :root {
-  --dsw-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --ds-font-family-code: 'SF Mono', 'JetBrains Mono', 'Fira Code', Consolas,
-    'Liberation Mono', Menlo, Courier, 'PingFang SC', 'Microsoft YaHei';
+  --dsw-font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'Noto Sans CJK SC', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --ds-font-family-code: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', 'JetBrains Mono', 'Fira Code',
+    'Microsoft YaHei UI', 'Microsoft YaHei', 'PingFang SC', 'Noto Sans CJK SC';
   --ds-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
   --ds-transition-duration: 0.2s;
   --ds-transition-duration-fast: 0.1s;

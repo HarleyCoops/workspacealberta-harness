@@ -238,14 +238,14 @@
     allowParallelInProgress: true
 
 # The `web` service and its search provider stay in the host composition; only
-# the model-facing tool is per-session. WorkspaceAlberta: the host `web` entry
-# is disabled by the deployment patch, so this row is disabled too — it would
-# otherwise block preset mount waiting for the absent search service.
+# the model-facing tool is per-session. WorkspaceAlberta: the deployment patch
+# restores the host `web` seam with the Cohere tool-use search provider and the
+# anonymous HTTP fetch provider, so both model-facing web tools mount with
+# fetch enabled.
 - id: tool-web
   name: '@deepseek-ai/dsh-tool-web'
-  disabled: true
   config:
-    fetch: false
+    fetch: true
     searchTimeoutMs: 60000
 
 # ── self-modification ───────────────────────────────────────────────────────

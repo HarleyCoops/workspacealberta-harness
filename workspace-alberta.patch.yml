@@ -1,7 +1,12 @@
 # WorkspaceAlberta / Warre & Vavasour deployment layer for official dsh.
 # Secrets are resolved from the process environment and are never stored here.
-- id: session-telemetry-otel
-  disabled: true
+#
+# Web tooling runs entirely on our side: the seam selects the Cohere v2
+# tool-use search provider (web-search-cohere) plus the anonymous local HTTP
+# fetch provider, and the DeepSeek-backed llm/web-search rows stay disabled.
+# session-telemetry-otel is mounted (restored) but stays inert: mode defaults
+# to DISABLED unless DSH_TELEMETRY_MODE opts in, and no collector URL exists
+# in the environment, so nothing exports off-machine.
 
 - id: llm-deepseek
   disabled: true
@@ -10,10 +15,14 @@
   disabled: true
 
 - id: web
-  disabled: true
+  config:
+    searchProvider: cohere
+    fetchProvider: http
 
 - id: tool-web
-  disabled: true
+  config:
+    fetch: true
+    searchTimeoutMs: 60000
 
 - id: agent-default-model
   config:
@@ -36,6 +45,14 @@
             input: [text]
 
 - insert:
+    - id: web-search-cohere
+      name: '@workspacealberta/web-search-cohere'
+      config:
+        apiKeyEnv: COHERE_API_KEY
+
+    - id: web-fetch-http
+      name: '@deepseek-ai/dsh-web-fetch-http'
+
     - id: mcp-workspace-alberta
       name: '@deepseek-ai/dsh-mcp-client'
       config:

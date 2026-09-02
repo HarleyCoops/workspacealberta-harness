@@ -20,8 +20,10 @@ body {
   /* The WebKit bar's layout width, mirrored by the ::-webkit-scrollbar rule
      below. A surface that must align itself beside a space-consuming bar
      (ConversationRoot's overlay composer seat) reads this instead of
-     hardcoding the number. */
-  --dsh-scrollbar-width: 8px;
+     hardcoding the number. ZCode's pill bar reserves 14px, of which the
+     thumb's 3px transparent inset border paints away 6 — the stroke the
+     user sees stays 8px, so neighboring geometry keeps its old clearance. */
+  --dsh-scrollbar-width: 14px;
 }
 
 /* The two paths are mutually exclusive, and the gate is load-bearing rather
@@ -64,8 +66,8 @@ body {
    selector matching already does. Not inherited either, hence the unscoped
    selectors. */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 14px;
+  height: 14px;
 }
 
 /* Track stays transparent so the thumb reads against whatever surface scrolls
@@ -74,13 +76,23 @@ body {
   background: transparent;
 }
 
+/* ZCode's overlay pill: the transparent inset border and padding-box clip
+   shrink the painted stroke inside the 14px lane, and the fully-rounded
+   radius plus 32px minimum keep short thumbs visibly pills rather than
+   stubs. `border` must precede `background-clip` because the `background`
+   shorthand resets the clip to border-box. */
 ::-webkit-scrollbar-thumb {
-  border-radius: 4px;
+  min-width: 32px;
+  min-height: 32px;
+  border: 3px solid transparent;
+  border-radius: 9999px;
   background: var(--dsh-scrollbar-thumb);
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--dsh-scrollbar-thumb-hover);
+  background-clip: padding-box;
 }
 
 /* Both scrollbars meeting in a corner: no separate token, so the corner
