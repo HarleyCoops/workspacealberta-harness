@@ -5,12 +5,12 @@ import type { ConvViewProps } from '@deepseek-ai/dsh-client-ui-conversation/clie
 import type { PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
 import { fetchGrid, priceBand, type GridSnapshot } from './aeso.ts'
 import { createGridScene, type HoverInfo, type SceneHandle } from './scene.ts'
-import type { AlbertaGridKey } from './locales.ts'
+import type {} from './locales.ts'
 import css from './AlbertaGridView.module.css'
 
 const POLL_MS = 90_000
 
-export type AlbertaGridViewProps = ConvViewProps & PropsLocale<AlbertaGridKey>
+export type AlbertaGridViewProps = ConvViewProps & PropsLocale<'alberta-grid'>
 
 function formatMw(mw: number): string {
   return `${Math.round(mw).toLocaleString('en-CA')} MW`

@@ -6,6 +6,17 @@ import { ReferenceIcon } from '../reference/ReferenceIcon.tsx'
 import { contextBody } from './ContextBody.tsx'
 import css from './ContextInjectionRow.module.css'
 
+/**
+ * Producer labels can carry npm-scoped package ids (`@vendor/dsh-…`). The
+ * scope is a packaging fact of the plugin transport, never product branding,
+ * so the chip renders it de-scoped while the durable source stays canonical.
+ * @param label - Producer label projected from the durable source.
+ * @returns the label without any leading npm scope.
+ */
+function displayLabel(label: string): string {
+  return label.replace(/^@[\w.-]+\//u, '')
+}
+
 /** Props for the logged non-user message presentation. */
 export interface ContextInjectionRowProps {
   content: ContextMessageNode['content']
@@ -49,7 +60,7 @@ export function ContextInjectionRow({ content, source, provenance, form, t }: Co
            name shape. A source that names no producer drops the dot with it. */
         <>
           <span className={css.sep} aria-hidden />
-          <span className={css.source} data-context-source>{provenance.label}</span>
+          <span className={css.source} data-context-source>{displayLabel(provenance.label)}</span>
           {summary !== null && (
             <>
               <span className={css.sep} aria-hidden />
