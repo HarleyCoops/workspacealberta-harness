@@ -10,4 +10,4 @@
 - 采购技能反馈遵循 [WORKSPACE_ALBERTA.md](WORKSPACE_ALBERTA.md) 中的 `wa-feedback` 路径。
 - 改代码时遵循 [AGENTS.md](AGENTS.md) 和[开发指南](docs/development.md)。
 
-外部拉取请求按 Workspace Alberta 产品身份审查：不要重新引入 `@deepseek-ai` 作用域、面向用户的 `dsh` CLI，或 DeepSeek Harness 产品表述。
+外部拉取请求按 Workspace Alberta 产品身份审查：不要重新引入 DeepSeek npm 作用域、面向用户的 `dsh` CLI，或 DeepSeek Harness 产品表述。

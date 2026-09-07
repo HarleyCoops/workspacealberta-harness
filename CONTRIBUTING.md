@@ -10,4 +10,4 @@ This repository is the Warre & Vavasour Workspace Alberta product. Issues and pu
 - Procurement skill feedback uses the `wa-feedback` path described in [WORKSPACE_ALBERTA.md](WORKSPACE_ALBERTA.md).
 - Follow [AGENTS.md](AGENTS.md) and the [development guide](docs/development.md) when changing code.
 
-External pull requests are reviewed against the Workspace Alberta product identity: do not reintroduce `@deepseek-ai` scopes, a `dsh` user-facing CLI, or DeepSeek Harness product framing.
+External pull requests are reviewed against the Workspace Alberta product identity: do not reintroduce a DeepSeek npm scope, a `dsh` user-facing CLI, or DeepSeek Harness product framing.

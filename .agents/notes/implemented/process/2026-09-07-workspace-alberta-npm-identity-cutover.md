@@ -6,11 +6,11 @@ English | [中文](2026-09-07-workspace-alberta-npm-identity-cutover.zh.md)
 
 ## Problem
 
-The product ships as Workspace Alberta / Warre & Vavasour, but first-party npm names, TypeScript specifiers, and the operator CLI still used the DeepSeek Harness identity (`@deepseek-ai/dsh-*`, root `@deepseek-ai/dsh-root`, bin `dsh`). Operators and package consumers could not treat this repository as an independent product.
+The product ships as Workspace Alberta / Warre & Vavasour, but first-party npm names, TypeScript specifiers, and the operator CLI still used the DeepSeek Harness identity (DeepSeek-scoped `dsh-*` packages, root `dsh-root`, bin `dsh`). Operators and package consumers could not treat this repository as an independent product.
 
 ## Decision
 
-The first-party npm scope is `@workspacealberta`. Former `@deepseek-ai/dsh-<name>` packages are `@workspacealberta/wa-<name>`; the CLI package is `@workspacealberta/wa`; the workspace root is `@workspacealberta/wa-root`. Vendored Cordis packages keep their unprefixed names under the same scope (`@workspacealberta/cordis`, and the other eight mapped names in [docs/rescope.md](../../../../docs/rescope.md)). Packages that already used `@workspacealberta` without a `dsh-` prefix (`ui-alberta-grid`, `web-search-cohere`) keep those names.
+The first-party npm scope is `@workspacealberta`. Former DeepSeek-scoped `dsh-<name>` packages are `@workspacealberta/wa-<name>`; the CLI package is `@workspacealberta/wa`; the workspace root is `@workspacealberta/wa-root`. Vendored Cordis packages keep their unprefixed names under the same scope (`@workspacealberta/cordis`, and the other eight mapped names in [docs/rescope.md](../../../../docs/rescope.md)). Packages that already used `@workspacealberta` without a `dsh-` prefix (`ui-alberta-grid`, `web-search-cohere`) keep those names.
 
 The user-facing and systemd-facing CLI is `wa` (`pnpm wa`, `apps/cli` bin, Commander program name, release family id `wa`, tag prefix `wa-v`). The `dsh` key inside package manifests remains the profile/bundle metadata field the loader already reads; renaming it would be a separate on-disk format change. Environment variables such as `DSH_HOME` stay so existing Pi units keep resolving `~/.workspaceAlberta`.
 
@@ -26,7 +26,7 @@ Archived Agent Notes are not rewritten: they are hash-sealed historical snapshot
 
 **Rename `DSH_*` environment variables and the `dsh` manifest metadata key in the same change.** Rejected: those are runtime and on-disk contracts for deployed units and profile bundles. This cutover is identity and import resolution, not a home-directory or bundle-format bump.
 
-**Rewrite archived Agent Notes so `rg '@deepseek-ai'` is empty even with `--no-ignore`.** Rejected: the archive seal forbids content edits, and the documented success `rg` already excludes that tree via `.rgignore`.
+**Rewrite archived Agent Notes so a DeepSeek-scope search is empty even with `--no-ignore`.** Rejected: the archive seal forbids content edits, and the documented success search already excludes that tree via `.rgignore`.
 
 ## Consequences
 

@@ -6,11 +6,11 @@ Status: implemented
 
 ## Problem
 
-产品以 Workspace Alberta / Warre & Vavasour 运营，但第一方 npm 名称、TypeScript 模块说明符和操作员 CLI 仍使用 DeepSeek Harness 身份（`@deepseek-ai/dsh-*`、根包 `@deepseek-ai/dsh-root`、命令 `dsh`）。操作员和包消费者无法把本仓库当作独立产品。
+产品以 Workspace Alberta / Warre & Vavasour 运营，但第一方 npm 名称、TypeScript 模块说明符和操作员 CLI 仍使用 DeepSeek Harness 身份（DeepSeek 作用域下的 `dsh-*` 包、根包 `dsh-root`、命令 `dsh`）。操作员和包消费者无法把本仓库当作独立产品。
 
 ## Decision
 
-第一方 npm 作用域为 `@workspacealberta`。原先的 `@deepseek-ai/dsh-<name>` 包现为 `@workspacealberta/wa-<name>`；CLI 包为 `@workspacealberta/wa`；工作区根包为 `@workspacealberta/wa-root`。Vendored Cordis 包在同一作用域下保留无前缀名称（`@workspacealberta/cordis`，以及 [docs/rescope.md](../../../../docs/rescope.md) 中的其余八个映射名）。已经使用 `@workspacealberta` 且没有 `dsh-` 前缀的包（`ui-alberta-grid`、`web-search-cohere`）保持原名。
+第一方 npm 作用域为 `@workspacealberta`。原先 DeepSeek 作用域下的 `dsh-<name>` 包现为 `@workspacealberta/wa-<name>`；CLI 包为 `@workspacealberta/wa`；工作区根包为 `@workspacealberta/wa-root`。Vendored Cordis 包在同一作用域下保留无前缀名称（`@workspacealberta/cordis`，以及 [docs/rescope.md](../../../../docs/rescope.md) 中的其余八个映射名）。已经使用 `@workspacealberta` 且没有 `dsh-` 前缀的包（`ui-alberta-grid`、`web-search-cohere`）保持原名。
 
 面向用户和 systemd 的 CLI 为 `wa`（`pnpm wa`、`apps/cli` 的 bin、Commander 程序名、发布族 id `wa`、标签前缀 `wa-v`）。包清单里的 `dsh` 键仍是 Loader 已读取的 profile/bundle 元数据字段；改它会变成另一次磁盘格式变更。`DSH_HOME` 等环境变量保持不变，以便现有 Pi 单元继续解析 `~/.workspaceAlberta`。
 
@@ -26,7 +26,7 @@ Status: implemented
 
 **在同一次变更中重命名 `DSH_*` 环境变量和清单中的 `dsh` 元数据键。** 否决：它们是已部署单元和 profile bundle 的运行时与磁盘约定。本次切换是身份和导入解析，不是主目录或 bundle 格式升级。
 
-**改写已归档 Agent Note，使即使加上 `--no-ignore`，`rg '@deepseek-ai'` 也为空。** 否决：归档封印禁止改内容，且文档中的成功标准 `rg` 已通过 `.rgignore` 排除该树。
+**改写已归档 Agent Note，使即使加上 `--no-ignore`，DeepSeek 作用域搜索也为空。** 否决：归档封印禁止改内容，且文档中的成功标准搜索已通过 `.rgignore` 排除该树。
 
 ## Consequences
 
