@@ -1,9 +1,9 @@
 // @vitest-environment jsdom
 import { afterEach, describe, expect, it, vi } from 'vitest'
 import { cleanup, render } from '@testing-library/react'
-import { Context } from '@deepseek-ai/cordis'
-import { SlotTestRuntime } from '@deepseek-ai/dsh-client-test-runtime'
-import type { SessionId } from '@deepseek-ai/dsh-client-runtime/client'
+import { Context } from '@workspacealberta/cordis'
+import { SlotTestRuntime } from '@workspacealberta/wa-client-test-runtime'
+import type { SessionId } from '@workspacealberta/wa-client-runtime/client'
 import { buildRenderApp } from '../src/client/app.tsx'
 
 let runtime: SlotTestRuntime | undefined

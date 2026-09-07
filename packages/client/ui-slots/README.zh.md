@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-slots
+# @workspacealberta/wa-client-ui-slots
 
 [English](README.md) | 中文
 

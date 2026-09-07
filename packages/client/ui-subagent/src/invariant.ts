@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-client-ui-subagent`.
- * @module @deepseek-ai/dsh-client-ui-subagent/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-client-ui-subagent`.
+ * @module @workspacealberta/wa-client-ui-subagent/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-client-ui-subagent'
+const PACKAGE_NAME = '@workspacealberta/wa-client-ui-subagent'
 
 /** Cordis companion plugin name. */
 export const name = 'client-ui-subagent-invariant'

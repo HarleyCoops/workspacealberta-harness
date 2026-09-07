@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-subagent
+# @workspacealberta/wa-client-ui-subagent
 
 [English](README.md) | 中文
 

@@ -247,8 +247,8 @@ function siteTitle(previewTag: string): string {
 }
 
 export default withMermaid({
-  title: 'DeepSeek Harness',
-  description: '用于构建 Agent Harness 的插件化 SDK',
+  title: 'Workspace Alberta',
+  description: 'Workspace Alberta plugin runtime for agent terminals',
   base,
   head: [
     // VitePress leaves head hrefs untouched, so the base belongs here explicitly.

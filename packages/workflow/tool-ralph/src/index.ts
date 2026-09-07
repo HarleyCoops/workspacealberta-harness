@@ -2,19 +2,19 @@
  * Model-facing foreground Ralph loop over the workflow and subagent seams. A
  * fixed script starts one fresh structured-output child per round, carrying
  * only the immutable objective and the previous bounded handoff between them.
- * @module @deepseek-ai/dsh-tool-ralph
+ * @module @workspacealberta/wa-tool-ralph
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm'
-import type { JsonValue } from '@deepseek-ai/dsh-session'
-import type { SubagentProvider } from '@deepseek-ai/dsh-subagent'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { ToolCallView, ToolResultView } from '@deepseek-ai/dsh-tools'
-import type { WorkflowResult, WorkflowRun } from '@deepseek-ai/dsh-workflow'
+import type { Context } from '@workspacealberta/cordis'
+import z from '@workspacealberta/schemastery'
+import type { ContentBlock } from '@workspacealberta/wa-llm'
+import type { JsonValue } from '@workspacealberta/wa-session'
+import type { SubagentProvider } from '@workspacealberta/wa-subagent'
+import { defineTool } from '@workspacealberta/wa-tools'
+import type { ToolCallView, ToolResultView } from '@workspacealberta/wa-tools'
+import type { WorkflowResult, WorkflowRun } from '@workspacealberta/wa-workflow'
 // Declaration merge only: makes ctx.systemPrompt visible for section registration.
-import type {} from '@deepseek-ai/dsh-system-prompt'
+import type {} from '@workspacealberta/wa-system-prompt'
 
 export const name = 'tool-ralph'
 export const inject = ['tools', 'workflowEngine', 'subagents', 'systemPrompt']

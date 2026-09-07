@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-tool-ask-user`.
- * @module @deepseek-ai/dsh-tool-ask-user/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-tool-ask-user`.
+ * @module @workspacealberta/wa-tool-ask-user/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-tool-ask-user'
+const PACKAGE_NAME = '@workspacealberta/wa-tool-ask-user'
 
 /** Cordis companion plugin name. */
 export const name = 'tool-ask-user-invariant'

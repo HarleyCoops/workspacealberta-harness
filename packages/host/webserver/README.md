@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-host-webserver
+# @workspacealberta/wa-host-webserver
 
 English | [中文](README.zh.md)
 

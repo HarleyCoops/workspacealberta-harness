@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-pwsh-sandbox",
+  "name": "@workspacealberta/wa-pwsh-sandbox",
   "description": "Sandbox-consuming implementation of the DeepSeek Harness PowerShell executor seam (confines every command via ctx.sandbox, reports denial/enforcement result facts)",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -32,21 +32,21 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-shell": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-pwsh-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-shell": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-pwsh-local": "workspace:^",
+    "@workspacealberta/wa-sandbox": "workspace:^",
+    "@workspacealberta/wa-sandbox-policy": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-shell": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-pwsh-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-local": "workspace:^",
-    "@deepseek-ai/dsh-sandbox-policy": "workspace:^",
-    "@deepseek-ai/dsh-subprocess-local": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-shell": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-pwsh-local": "workspace:^",
+    "@workspacealberta/wa-sandbox": "workspace:^",
+    "@workspacealberta/wa-sandbox-local": "workspace:^",
+    "@workspacealberta/wa-sandbox-policy": "workspace:^",
+    "@workspacealberta/wa-subprocess-local": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   }
 }

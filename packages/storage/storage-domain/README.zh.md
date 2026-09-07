@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-storage-domain
+# @workspacealberta/wa-storage-domain
 
 [English](README.md) | 中文
 

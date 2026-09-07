@@ -1,7 +1,7 @@
 /**
  * Browser-safe subagent projection vocabulary.
  *
- * @module @deepseek-ai/dsh-subagent/client
+ * @module @workspacealberta/wa-subagent/client
  */
 
 export type { SubagentIdentityProjection, SubagentTimingProjection } from './projection-types.ts'

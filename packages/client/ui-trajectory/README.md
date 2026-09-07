@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-trajectory
+# @workspacealberta/wa-client-ui-trajectory
 
 English | [中文](README.zh.md)
 

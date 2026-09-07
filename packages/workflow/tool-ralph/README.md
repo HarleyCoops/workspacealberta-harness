@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-tool-ralph
+# @workspacealberta/wa-tool-ralph
 
 English | [中文](README.zh.md)
 

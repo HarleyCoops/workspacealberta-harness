@@ -1,11 +1,11 @@
 /** Host BFF policy for resolving Remote Agent and Session identities. */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Agent, AgentOptions, AgentSetup } from '@deepseek-ai/dsh-agent'
-import type { Session, SessionEvent, SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import type {} from '@deepseek-ai/dsh-session-persistence'
-import { TypertLookupFailure } from '@deepseek-ai/dsh-typert-protocol'
-import type {} from '@deepseek-ai/dsh-typert-registry'
+import type { Context } from '@workspacealberta/cordis'
+import type { Agent, AgentOptions, AgentSetup } from '@workspacealberta/wa-agent'
+import type { Session, SessionEvent, SessionHeader, SessionId } from '@workspacealberta/wa-session'
+import type {} from '@workspacealberta/wa-session-persistence'
+import { TypertLookupFailure } from '@workspacealberta/wa-typert-protocol'
+import type {} from '@workspacealberta/wa-typert-registry'
 
 /** Caller-facing failures preserved by the Gateway's RPC adapter. */
 export type ApiRemoteLookupError =

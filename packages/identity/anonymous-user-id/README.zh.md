@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-anonymous-user-id
+# @workspacealberta/wa-anonymous-user-id
 
 [English](README.md) | 中文
 

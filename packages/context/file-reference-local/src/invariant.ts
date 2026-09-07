@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-file-reference-local`.
- * @module @deepseek-ai/dsh-file-reference-local/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-file-reference-local`.
+ * @module @workspacealberta/wa-file-reference-local/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-file-reference-local'
+const PACKAGE_NAME = '@workspacealberta/wa-file-reference-local'
 
 /** Cordis companion plugin name. */
 export const name = 'file-reference-local-invariant'

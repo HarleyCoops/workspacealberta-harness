@@ -1,4 +1,4 @@
-# `@deepseek-ai/dsh-file-reference-local`
+# `@workspacealberta/wa-file-reference-local`
 
 English | [中文](README.zh.md)
 

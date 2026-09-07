@@ -1,6 +1,6 @@
-import type { ContentBlock } from '@deepseek-ai/dsh-llm/types'
-import type { MuxFrame } from '@deepseek-ai/dsh-api-remotes/client'
-import type { SessionEvent } from '@deepseek-ai/dsh-session/types'
+import type { ContentBlock } from '@workspacealberta/wa-llm/types'
+import type { MuxFrame } from '@workspacealberta/wa-api-remotes/client'
+import type { SessionEvent } from '@workspacealberta/wa-session/types'
 import type { QueuedMessage } from './conversation.ts'
 
 const QUEUE_PREVIEW_CHARS = 200

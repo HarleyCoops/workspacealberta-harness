@@ -48,7 +48,7 @@ vendored Loader 经其 `internal` 约定消费模块系统——唯一调用点�
 
 ### 装载流程，端到端
 
-从 `dsh web` 启动到 UI 出现之间发生了什么？三个阶段：host 组合 graph 并由 parser 预载 bootstrap factory，HTML facade 创建模块系统且外壳执行预取，然后 Cordis 编排。
+从 `wa web` 启动到 UI 出现之间发生了什么？三个阶段：host 组合 graph 并由 parser 预载 bootstrap factory，HTML facade 创建模块系统且外壳执行预取，然后 Cordis 编排。
 
 **host 侧——组合这张图。**
 

@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-agent-preset",
+  "name": "@workspacealberta/wa-client-ui-agent-preset",
   "description": "Agent-preset surfaces: the default for later sessions, this session's seat, and the composition editor",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -32,12 +32,12 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-connection",
-        "@deepseek-ai/dsh-client-locale",
-        "@deepseek-ai/dsh-client-runtime",
-        "@deepseek-ai/dsh-client-ui-conversation",
-        "@deepseek-ai/dsh-client-ui-settings",
-        "@deepseek-ai/dsh-api-remotes"
+        "@workspacealberta/wa-client-connection",
+        "@workspacealberta/wa-client-locale",
+        "@workspacealberta/wa-client-runtime",
+        "@workspacealberta/wa-client-ui-conversation",
+        "@workspacealberta/wa-client-ui-settings",
+        "@workspacealberta/wa-api-remotes"
       ],
       "platform": "web"
     }
@@ -48,28 +48,28 @@
   },
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-api-remotes": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-client-locale": "workspace:^",
-    "@deepseek-ai/dsh-client-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-conversation": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-settings": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^"
+    "@workspacealberta/cordis": "workspace:^",
+    "@workspacealberta/wa-api-remotes": "workspace:^",
+    "@workspacealberta/wa-client-connection": "workspace:^",
+    "@workspacealberta/wa-client-locale": "workspace:^",
+    "@workspacealberta/wa-client-runtime": "workspace:^",
+    "@workspacealberta/wa-client-ui-conversation": "workspace:^",
+    "@workspacealberta/wa-client-ui-settings": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-api-remotes": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-client-locale": "workspace:^",
-    "@deepseek-ai/dsh-client-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-test-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-conversation": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-primitives": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-settings": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@workspacealberta/wa-api-remotes": "workspace:^",
+    "@workspacealberta/wa-client-connection": "workspace:^",
+    "@workspacealberta/wa-client-locale": "workspace:^",
+    "@workspacealberta/wa-client-runtime": "workspace:^",
+    "@workspacealberta/wa-client-test-runtime": "workspace:^",
+    "@workspacealberta/wa-client-ui-conversation": "workspace:^",
+    "@workspacealberta/wa-client-ui-primitives": "workspace:^",
+    "@workspacealberta/wa-client-ui-settings": "workspace:^",
+    "@workspacealberta/wa-client-ui-slots": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
     "@types/react": "~18.3.1",
-    "@deepseek-ai/cordis": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^",
     "react": "^18.2.0"
   },
   "files": [

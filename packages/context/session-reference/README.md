@@ -1,4 +1,4 @@
-# `@deepseek-ai/dsh-session-reference`
+# `@workspacealberta/wa-session-reference`
 
 English | [中文](README.zh.md)
 

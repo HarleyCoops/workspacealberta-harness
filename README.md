@@ -6,7 +6,7 @@
 
 <p align="center"><em>Canadian industrial war production, via Library and Archives Canada.</em></p>
 
-A custom, CEO-focused, enterprise-grade AI terminal for building and delivering real work. Forked from the MIT-licensed [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (`dsh`), operated as a Warre & Vavasour product. Launch instructions live in [WORKSPACE_ALBERTA.md](WORKSPACE_ALBERTA.md).
+A custom, CEO-focused, enterprise-grade AI terminal for building and delivering real work. Workspace Alberta is a Warre & Vavasour product. The operator CLI is `wa`; packages ship under `@workspacealberta`. Launch instructions live in [WORKSPACE_ALBERTA.md](WORKSPACE_ALBERTA.md). Inherited MIT source and notices are recorded in [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 
 ## A place for “Wouldn't it be great if…”
 
@@ -106,12 +106,11 @@ workspaceAlberta is building Canadian capability, with the processing route made
 
 So yes: we acknowledge the cost, we say it out loud instead of hiding it, and our answer stays Canadian infrastructure, right-sized models on hardware you own, and local data retention over redundant cloud sprawl. Because it is 1834, and the railroad has been built. The tracks arrive Tuesday. The world as we know it is all changing. workspaceAlberta is the way to stay ahead of these changes.
 
-## Upstream: DeepSeek Harness
+## Architecture and docs
 
-This repository is the upstream `dsh` codebase carrying the workspaceAlberta deployment layer (branding, model route, presets, and deployment patch on the `workspace-alberta` branch). The upstream project — architecture where everything is a plugin, powered by [Cordis](https://github.com/cordiverse/cordis) — is in developer preview and iterates rapidly; expect compatibility-breaking changes when pulling it in.
+Workspace Alberta is a plugin runtime powered by [Cordis](https://github.com/cordiverse/cordis). Every capability is a package under `@workspacealberta`.
 
-- Upstream docs: [development guide](docs/development.md), [architecture](docs/architecture.md), [Web UI guide](docs/user/guide/index.md) ([中文](README.zh.md))
-- Community: upstream [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions), [`dsh-plugin`](https://github.com/topics/dsh-plugin) topic, upstream [Discord](https://discord.gg/Ycq5dCaS4)
+- Docs: [development guide](docs/development.md), [architecture](docs/architecture.md), [Web UI guide](docs/user/guide/index.md) ([中文](README.zh.md))
 
 ## Run
 
@@ -119,7 +118,7 @@ Use the [Workspace Alberta deployment instructions](WORKSPACE_ALBERTA.md) for th
 
 ### Run from source
 
-Install dependencies with `pnpm install`, then follow the build and launch commands in the deployment instructions. See the [development guide](docs/development.md) for upstream contributor workflows.
+Install dependencies with `pnpm install`, then follow the build and launch commands in the deployment instructions. See the [development guide](docs/development.md) for contributor workflows.
 
 ## License
 

@@ -5,21 +5,21 @@
  */
 
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@workspacealberta/cordis'
 import { stat } from 'node:fs/promises'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import SessionStore from '@deepseek-ai/dsh-session'
-import type { SessionHeader, SessionId } from '@deepseek-ai/dsh-session'
-import UserQuestionService from '@deepseek-ai/dsh-user-questions'
+import AgentRegistry from '@workspacealberta/wa-agent'
+import { createUserMessage } from '@workspacealberta/wa-llm'
+import SessionStore from '@workspacealberta/wa-session'
+import type { SessionHeader, SessionId } from '@workspacealberta/wa-session'
+import UserQuestionService from '@workspacealberta/wa-user-questions'
 import {
   SessionQueryError,
   type SessionSearchHit,
   type SessionSearchRequest,
-} from '@deepseek-ai/dsh-session-query'
-import type { RpcRequest } from '@deepseek-ai/dsh-host-apiproxy/api'
-import { RpcId } from '@deepseek-ai/dsh-host-apiproxy/api'
-import { createApiProxy } from '@deepseek-ai/dsh-host-apiproxy'
+} from '@workspacealberta/wa-session-query'
+import type { RpcRequest } from '@workspacealberta/wa-host-apiproxy/api'
+import { RpcId } from '@workspacealberta/wa-host-apiproxy/api'
+import { createApiProxy } from '@workspacealberta/wa-host-apiproxy'
 
 vi.mock('node:fs/promises', async (importOriginal) => {
   const actual = await importOriginal<typeof import('node:fs/promises')>()

@@ -7,17 +7,17 @@
  * imports no provider.
  *
  * Namespace plugin (named exports, no default export).
- * @module @deepseek-ai/dsh-tool-lsp
+ * @module @workspacealberta/wa-tool-lsp
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import { assertNever } from '@deepseek-ai/dsh-llm'
-import { LspError } from '@deepseek-ai/dsh-lsp'
-import type {} from '@deepseek-ai/dsh-lsp'
-import type {} from '@deepseek-ai/dsh-system-prompt'
-import { MAX_TIMER_DELAY_MS } from '@deepseek-ai/dsh-timeout'
+import type { Context } from '@workspacealberta/cordis'
+import z from '@workspacealberta/schemastery'
+import { defineTool } from '@workspacealberta/wa-tools'
+import { assertNever } from '@workspacealberta/wa-llm'
+import { LspError } from '@workspacealberta/wa-lsp'
+import type {} from '@workspacealberta/wa-lsp'
+import type {} from '@workspacealberta/wa-system-prompt'
+import { MAX_TIMER_DELAY_MS } from '@workspacealberta/wa-timeout'
 import {
   DEFAULT_MAX_LOCATIONS,
   DEFAULT_MAX_RESULT_CHARS,

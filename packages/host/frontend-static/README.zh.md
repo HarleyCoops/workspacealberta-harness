@@ -1,4 +1,4 @@
-# `@deepseek-ai/dsh-host-frontend-static`
+# `@workspacealberta/wa-host-frontend-static`
 
 [English](README.md) | 中文
 

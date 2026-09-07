@@ -1,11 +1,11 @@
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
+import { createUserMessage } from '@workspacealberta/wa-llm'
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { SessionId, type SessionEvent } from '@deepseek-ai/dsh-session'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import AgentLoop from '@deepseek-ai/dsh-agent-loop'
-import { mountAgentLoopTestDependencies } from '@deepseek-ai/dsh-agent-loop-testkit'
-import * as ToolTodo from '@deepseek-ai/dsh-tool-todo'
+import { Context } from '@workspacealberta/cordis'
+import { SessionId, type SessionEvent } from '@workspacealberta/wa-session'
+import type { Agent } from '@workspacealberta/wa-agent'
+import AgentLoop from '@workspacealberta/wa-agent-loop'
+import { mountAgentLoopTestDependencies } from '@workspacealberta/wa-agent-loop-testkit'
+import * as ToolTodo from '@workspacealberta/wa-tool-todo'
 import { MockAdapter, textResponse, toolCallResponse } from '../../../core/agent-loop/tests/mock-adapter.ts'
 
 /**

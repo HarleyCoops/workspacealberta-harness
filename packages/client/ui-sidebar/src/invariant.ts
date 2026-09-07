@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-client-ui-sidebar`.
- * @module @deepseek-ai/dsh-client-ui-sidebar/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-client-ui-sidebar`.
+ * @module @workspacealberta/wa-client-ui-sidebar/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-client-ui-sidebar'
+const PACKAGE_NAME = '@workspacealberta/wa-client-ui-sidebar'
 
 /** Cordis companion plugin name. */
 export const name = 'client-ui-sidebar-invariant'

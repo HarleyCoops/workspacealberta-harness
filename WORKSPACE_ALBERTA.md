@@ -1,12 +1,12 @@
 # workspaceAlberta
 
-workspaceAlberta is an independent Warre & Vavasour deployment of the MIT-licensed upstream `dsh` plugin runtime. It is not official DeepSeek software. Upstream copyright, license, package names, and notices remain intact; product-facing branding and provider defaults are supplied by this downstream checkout.
+workspaceAlberta is the Warre & Vavasour product: a plugin-based agent terminal for Canadian industrial and procurement work. npm packages ship as `@workspacealberta/*`; the operator CLI is `wa`. MIT copyright and third-party notices for inherited source stay in `LICENSE` and `THIRD_PARTY_NOTICES.md`. This product is not DeepSeek software and does not use the DeepSeek Harness name, scope, or `dsh` command.
 
 Build and launch the Web profile on port 3081 with telemetry hard-disabled and the workspaceAlberta deployment patch:
 
 ```sh
 DSH_CLIENT_BUILD_PROFILE=official DSH_CLIENT_TITLE=workspaceAlberta pnpm run build
-DSH_TELEMETRY_DISABLED=1 pnpm dsh --profile web --patch workspace-alberta.patch.yml --host 127.0.0.1 --port 3081 --no-open
+DSH_TELEMETRY_DISABLED=1 pnpm wa --profile web --patch workspace-alberta.patch.yml --host 127.0.0.1 --port 3081 --no-open
 ```
 
 The Cohere route reads `COHERE_API_KEY`. Composio is not part of this harness: it is the WorkspaceAlberta connection layer for other products, never a tool-calling surface here and never bridged to the workspaceAlberta server. The harness's model-facing MCP surface is Linear plus the direct workspaceAlberta endpoint, mounted through the upstream streamable-HTTP MCP client. No keys belong in this repository.

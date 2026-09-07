@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-tool-goal
+# @workspacealberta/wa-tool-goal
 
 English | [中文](README.zh.md)
 
@@ -28,7 +28,7 @@ Complete and blocked also accept the exact current goal round: a goal-sourced `u
 
 ```yaml
 - id: tool-goal
-  name: '@deepseek-ai/dsh-tool-goal'
+  name: '@workspacealberta/wa-tool-goal'
   config:
     blockedAfterConsecutiveRounds: 3
 ```

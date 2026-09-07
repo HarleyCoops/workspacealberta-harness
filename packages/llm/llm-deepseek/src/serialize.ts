@@ -6,10 +6,10 @@
  * @module dsh-llm-deepseek/serialize
  */
 
-import { contentHasImage, LlmError, offloadRequestImages } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, GenerateOptions, Message } from '@deepseek-ai/dsh-llm'
-import { AttachmentError } from '@deepseek-ai/dsh-attachment'
-import type { AttachmentStore } from '@deepseek-ai/dsh-attachment'
+import { contentHasImage, LlmError, offloadRequestImages } from '@workspacealberta/wa-llm'
+import type { ContentBlock, GenerateOptions, Message } from '@workspacealberta/wa-llm'
+import { AttachmentError } from '@workspacealberta/wa-attachment'
+import type { AttachmentStore } from '@workspacealberta/wa-attachment'
 import type {
   WireImageContentPart,
   WireMessage,

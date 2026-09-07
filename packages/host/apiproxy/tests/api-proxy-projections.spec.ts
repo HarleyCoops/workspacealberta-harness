@@ -8,22 +8,22 @@
  */
 
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@workspacealberta/cordis'
 import { z } from 'zod'
-import AgentRegistry, { Inbox } from '@deepseek-ai/dsh-agent'
-import { AttachmentStore } from '@deepseek-ai/dsh-attachment'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import SessionStore, { SessionId } from '@deepseek-ai/dsh-session'
-import type { Session } from '@deepseek-ai/dsh-session'
-import SessionProjectionRegistry from '@deepseek-ai/dsh-session-projection'
-import type { ProjectionDefinition } from '@deepseek-ai/dsh-session-projection'
-import UserQuestionService from '@deepseek-ai/dsh-user-questions'
-import type { MuxFrame, RpcRequest } from '@deepseek-ai/dsh-host-apiproxy/api'
-import { RpcId } from '@deepseek-ai/dsh-host-apiproxy/api/rpc'
-import { createApiProxy } from '@deepseek-ai/dsh-host-apiproxy'
+import AgentRegistry, { Inbox } from '@workspacealberta/wa-agent'
+import { AttachmentStore } from '@workspacealberta/wa-attachment'
+import type { Agent } from '@workspacealberta/wa-agent'
+import { createUserMessage } from '@workspacealberta/wa-llm'
+import SessionStore, { SessionId } from '@workspacealberta/wa-session'
+import type { Session } from '@workspacealberta/wa-session'
+import SessionProjectionRegistry from '@workspacealberta/wa-session-projection'
+import type { ProjectionDefinition } from '@workspacealberta/wa-session-projection'
+import UserQuestionService from '@workspacealberta/wa-user-questions'
+import type { MuxFrame, RpcRequest } from '@workspacealberta/wa-host-apiproxy/api'
+import { RpcId } from '@workspacealberta/wa-host-apiproxy/api/rpc'
+import { createApiProxy } from '@workspacealberta/wa-host-apiproxy'
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@workspacealberta/wa-session-projection/types' {
   interface SessionProjectionMap {
     'test/last-user': { text: string } | null
   }

@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-user-approval
+# @workspacealberta/wa-user-approval
 
 English | [中文](README.zh.md)
 

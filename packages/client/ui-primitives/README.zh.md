@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-primitives
+# @workspacealberta/wa-client-ui-primitives
 
 [English](README.md) | 中文
 

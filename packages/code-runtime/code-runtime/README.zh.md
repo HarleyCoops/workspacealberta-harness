@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-code-runtime
+# @workspacealberta/wa-code-runtime
 
 [English](README.md) | 中文
 

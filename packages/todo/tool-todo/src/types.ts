@@ -5,14 +5,14 @@
  * for host consumers, `./client/types` (the browser half-entry's re-export)
  * for client aggregates — with zero content duplication.
  *
- * @module @deepseek-ai/dsh-tool-todo/types
+ * @module @workspacealberta/wa-tool-todo/types
  */
 
-import type { TodoItem } from '@deepseek-ai/dsh-session/types'
+import type { TodoItem } from '@workspacealberta/wa-session/types'
 
-export type { TodoItem } from '@deepseek-ai/dsh-session/types'
+export type { TodoItem } from '@workspacealberta/wa-session/types'
 
-declare module '@deepseek-ai/dsh-session-projection/types' {
+declare module '@workspacealberta/wa-session-projection/types' {
   interface SessionProjectionMap {
     /**
      * The agent's current whole todo list (the latest `todo/write` snapshot),

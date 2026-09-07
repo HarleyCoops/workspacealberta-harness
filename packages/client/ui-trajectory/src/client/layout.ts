@@ -12,7 +12,7 @@ import type {
   RequestView,
   ToolCallBlock,
   ToolResultNode,
-} from '@deepseek-ai/dsh-client-runtime/client'
+} from '@workspacealberta/wa-client-runtime/client'
 import type {
   TrajectoryCellProps,
   TrajectorySourceBlock,

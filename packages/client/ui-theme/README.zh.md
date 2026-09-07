@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-theme
+# @workspacealberta/wa-client-ui-theme
 
 [English](README.md) | 中文
 

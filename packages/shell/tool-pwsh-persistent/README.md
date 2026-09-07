@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-tool-pwsh-persistent
+# @workspacealberta/wa-tool-pwsh-persistent
 
 English | [中文](README.zh.md)
 

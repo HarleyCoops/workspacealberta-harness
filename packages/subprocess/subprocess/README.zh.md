@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-subprocess
+# @workspacealberta/wa-subprocess
 
 [English](README.md) | 中文
 

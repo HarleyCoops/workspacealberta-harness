@@ -6,12 +6,12 @@
 # patch replaces the whole app config. Keyless replay supplies its own exact
 # image-capable catalog while the production endpoint remains unavailable.
 - id: base
-  name: '@deepseek-ai/cordis-plugin-include'
+  name: '@workspacealberta/cordis-plugin-include'
   config:
     path: ./cordis.yml
     patches:
       - id: acp-agent
-        name: '@deepseek-ai/dsh-acp-demo'
+        name: '@workspacealberta/wa-acp-demo'
         config:
           provider: deepseek-official
           model: deepseek-v4-flash
@@ -25,4 +25,4 @@
             Verify your work by running the code or tests. Keep answers brief and factual.
       - insert:
           - id: attachment-local
-            name: '@deepseek-ai/dsh-attachment-local'
+            name: '@workspacealberta/wa-attachment-local'

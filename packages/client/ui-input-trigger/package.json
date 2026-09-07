@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-input-trigger",
+  "name": "@workspacealberta/wa-client-ui-input-trigger",
   "description": "Input trigger pipeline: '/' and '@' detection, candidate menu, pick routing to registered sources",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -32,8 +32,8 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-runtime",
-        "@deepseek-ai/dsh-client-locale"
+        "@workspacealberta/wa-client-runtime",
+        "@workspacealberta/wa-client-locale"
       ],
       "platform": "web"
     }
@@ -47,23 +47,23 @@
     "clsx": "^2.0.0"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-client-locale": "workspace:^",
-    "@deepseek-ai/dsh-client-runtime": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-file-reference": "workspace:^"
+    "@workspacealberta/wa-client-locale": "workspace:^",
+    "@workspacealberta/wa-client-runtime": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^",
+    "@workspacealberta/wa-file-reference": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-client-locale": "workspace:^",
-    "@deepseek-ai/dsh-client-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-test-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-primitives": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@workspacealberta/wa-client-locale": "workspace:^",
+    "@workspacealberta/wa-client-runtime": "workspace:^",
+    "@workspacealberta/wa-client-test-runtime": "workspace:^",
+    "@workspacealberta/wa-client-ui-primitives": "workspace:^",
+    "@workspacealberta/wa-client-ui-slots": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
     "@types/react": "~18.3.1",
-    "@deepseek-ai/cordis": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^",
     "react": "^18.2.0",
-    "@deepseek-ai/dsh-file-reference": "workspace:^"
+    "@workspacealberta/wa-file-reference": "workspace:^"
   },
   "files": [
     "lib/index.js",

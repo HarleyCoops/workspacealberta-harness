@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-subagent-fork-in-process
+# @workspacealberta/wa-subagent-fork-in-process
 
 [English](README.md) | 中文
 

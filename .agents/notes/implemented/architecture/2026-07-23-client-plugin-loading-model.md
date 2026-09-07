@@ -48,7 +48,7 @@ The shared tsdown preset emits `client.js.map` for every plugin and rewrites fir
 
 ### The loading flow, end to end
 
-What happens between `dsh web` starting and the UI appearing? Three stages: the host composes a graph and parser-preloads bootstrap factories, the HTML facade creates the module system and the shell prefetches, then Cordis orchestrates.
+What happens between `wa web` starting and the UI appearing? Three stages: the host composes a graph and parser-preloads bootstrap factories, the HTML facade creates the module system and the shell prefetches, then Cordis orchestrates.
 
 **Host side — compose the graph.**
 
