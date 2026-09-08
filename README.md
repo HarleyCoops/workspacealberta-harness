@@ -10,6 +10,8 @@ A custom, CEO-focused, enterprise-grade AI terminal for building and delivering 
 
 ## A place for “Wouldn't it be great if…”
 
+Connect a supplier account and retrieve tender documents through the Cohere harness with the [local APC connector](integrations/apc/README.md).
+
 Wouldn't it be great if the idea you've been carrying around for years had a place to become real?
 
 That's what we're building. A physical workspace for the CEO, installed and supported by Warre & Vavasour. Keep running your business. Sit down with the thing you want to build, or the small thing you have always wished worked better. We'll work through it with you, connect the tools, and help carry it through to something your business can actually use.
