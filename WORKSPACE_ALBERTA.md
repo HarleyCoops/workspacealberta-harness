@@ -15,6 +15,8 @@ The deployment patch disables the upstream DeepSeek model adapter, DeepSeek-back
 
 ## Procurement: two files, two clocks
 
+For authenticated APC document retrieval, follow the [local APC connector setup](integrations/apc/README.md). Its optional overlay adds account sign-in and resumable downloads to the Cohere harness; authentication stays on the local desktop.
+
 The [procurement base](.agents/skills/wa-procurement-base/SKILL.md) performs cold-start tender work. The [improver](.agents/skills/wa-procurement-improver/SKILL.md) reviews feedback in a separate maintenance run. These are the only two instruction entrypoints; the base owns three small reference files. The harness discovers the base under its existing project skill root. The improver sets `disable-model-invocation: true`, so ordinary harness agents cannot select it from the skill catalog; its scheduler reads the file directly. This is routing, not a filesystem security restriction.
 
 ### Task clock

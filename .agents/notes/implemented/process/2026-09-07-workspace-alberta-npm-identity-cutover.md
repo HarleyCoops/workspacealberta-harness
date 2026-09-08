@@ -14,7 +14,7 @@ The first-party npm scope is `@workspacealberta`. Former DeepSeek-scoped `dsh-<n
 
 The user-facing and systemd-facing CLI is `wa` (`pnpm wa`, `apps/cli` bin, Commander program name, release family id `wa`, tag prefix `wa-v`). The `dsh` key inside package manifests remains the profile/bundle metadata field the loader already reads; renaming it would be a separate on-disk format change. Environment variables such as `DSH_HOME` stay so existing Pi units keep resolving `~/.workspaceAlberta`.
 
-Product docs (`README.md`, `WORKSPACE_ALBERTA.md`, `CONTRIBUTING.md`, `BRAND_GUIDELINES.md`, `AGENTS.md`, `workspace-alberta.patch.yml`) describe Workspace Alberta as the product, not as a DeepSeek Harness profile or patch layer. MIT copyright and third-party notices remain the legal attribution home.
+Product docs (`README.md`, `WORKSPACE_ALBERTA.md`, `CONTRIBUTING.md`, `BRAND_GUIDELINES.md`, `AGENTS.md`, `workspace-alberta.patch.yml`, `workspace-alberta-apc.patch.yml`) describe Workspace Alberta as the product, not as a DeepSeek Harness profile or patch layer. The APC launcher starts `pnpm wa`. MIT copyright and third-party notices remain the legal attribution home.
 
 Archived Agent Notes are not rewritten: they are hash-sealed historical snapshots, and `.rgignore` already excludes that tree from repository search. `LICENSE*` and `THIRD_PARTY*` files keep upstream copyright strings.
 

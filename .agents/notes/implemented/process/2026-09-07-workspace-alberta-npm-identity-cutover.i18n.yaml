@@ -2,5 +2,5 @@
 # side as of the last confirmed-consistent state. Both languages carry equal authority;
 # after editing either side, bring the other along and re-record with:
 #   pnpm run verify-translation-pairing --write .agents/notes/implemented/process/2026-09-07-workspace-alberta-npm-identity-cutover.md
-2026-09-07-workspace-alberta-npm-identity-cutover.md: e994a8484f8121f674a33834ee111acf19e1e6d2
-2026-09-07-workspace-alberta-npm-identity-cutover.zh.md: 3f0204f5d2b2fea35c78f78ed7fc6b8e7dd9d91c
+2026-09-07-workspace-alberta-npm-identity-cutover.md: fb58a4fd8511b7af3929fc80c5bc9dc5b7ba15db
+2026-09-07-workspace-alberta-npm-identity-cutover.zh.md: 1044ae71838bc05ce6cd2fee9c4f2512652b6955

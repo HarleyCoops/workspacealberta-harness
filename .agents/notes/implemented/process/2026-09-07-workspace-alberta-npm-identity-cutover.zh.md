@@ -14,7 +14,7 @@ Status: implemented
 
 面向用户和 systemd 的 CLI 为 `wa`（`pnpm wa`、`apps/cli` 的 bin、Commander 程序名、发布族 id `wa`、标签前缀 `wa-v`）。包清单里的 `dsh` 键仍是 Loader 已读取的 profile/bundle 元数据字段；改它会变成另一次磁盘格式变更。`DSH_HOME` 等环境变量保持不变，以便现有 Pi 单元继续解析 `~/.workspaceAlberta`。
 
-产品文档（`README.md`、`WORKSPACE_ALBERTA.md`、`CONTRIBUTING.md`、`BRAND_GUIDELINES.md`、`AGENTS.md`、`workspace-alberta.patch.yml`）把 Workspace Alberta 写成产品本身，而不是 DeepSeek Harness 的 profile 或补丁层。MIT 版权与第三方声明仍是法律归属的存放处。
+产品文档（`README.md`、`WORKSPACE_ALBERTA.md`、`CONTRIBUTING.md`、`BRAND_GUIDELINES.md`、`AGENTS.md`、`workspace-alberta.patch.yml`、`workspace-alberta-apc.patch.yml`）把 Workspace Alberta 写成产品本身，而不是 DeepSeek Harness 的 profile 或补丁层。APC 启动器运行 `pnpm wa`。MIT 版权与第三方声明仍是法律归属的存放处。
 
 已归档 Agent Note 不改写：它们是带哈希封印的历史快照，且 `.rgignore` 已把该树排除在仓库搜索之外。`LICENSE*` 和 `THIRD_PARTY*` 文件保留上游版权字符串。
 
