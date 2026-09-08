@@ -1,7 +1,7 @@
 /**
  * The three independent publish sequences this repository releases from
  * (`packages/` + `apps/`, `vendor/`, and `native/`) and the two this module
- * owns: `dsh` and `vendor`. Each family carries its own version baseline, tag
+ * owns: `wa` and `vendor`. Each family carries its own version baseline, tag
  * naming, and publish set, so releasing one never republishes another
  * ([rationale](../../.agents/notes/implemented/process/2026-08-10-npm-release-sequences.md)).
  *
@@ -35,6 +35,33 @@ const PEER_SECTIONS = ['peerDependencies'] as const
 
 /** The workspace root manifest, which is never a release member. */
 const WORKSPACE_ROOT_PACKAGE = '@workspacealberta/wa-root'
+
+/**
+ * Whether `from` can reach `to` by following already-accepted publish-before edges.
+ * @param from - the node to start from.
+ * @param to - the node to look for.
+ * @param successors - earlier package → later packages that must follow it.
+ * @returns Whether a path exists, including `from === to`.
+ */
+function canReach(
+  from: string,
+  to: string,
+  successors: ReadonlyMap<string, ReadonlySet<string>>,
+): boolean {
+  if (from === to) return true
+  const seen = new Set<string>()
+  const stack = [from]
+  while (stack.length > 0) {
+    const current = stack.pop()
+    if (current === undefined || seen.has(current)) continue
+    seen.add(current)
+    for (const next of successors.get(current) ?? []) {
+      if (next === to) return true
+      stack.push(next)
+    }
+  }
+  return false
+}
 
 /** One peer declaration the publish order leaves unordered. */
 interface DroppedPeerEdge {
@@ -159,12 +186,12 @@ export abstract class ReleaseFamily {
    * absent from the registry.
    *
    * Install edges are honoured absolutely — a cycle among them is a defect this
-   * reports rather than works around. Peer edges order what they can and are
-   * dropped where honouring one would deadlock: sibling packages declare each
-   * other as peers, and npm treats an unmet peer as a warning rather than a
-   * resolution failure ([rationale](../../.agents/notes/implemented/process/2026-08-10-npm-release-sequences.md)).
-   * Every dropped edge is reported, because dropping one is a decision about a
-   * real release rather than an implementation detail.
+   * reports rather than works around. Peer edges are added only when they do
+   * not cycle against those install edges or an already-accepted peer; a peer
+   * that would deadlock is dropped and named. The resulting DAG is emitted by
+   * Kahn's algorithm, ready-set ties broken by package name, so a rename that
+   * changes DFS visit order cannot invert an install edge
+   * ([rationale](../../.agents/notes/implemented/process/2026-08-10-npm-release-sequences.md)).
    * @param members - this family's members.
    * @returns The order, ties broken by name for determinism, and the peer edges it left unordered.
    */
@@ -191,56 +218,65 @@ export abstract class ReleaseFamily {
     }
     for (const member of byNameSorted) checkInstall(member, [])
 
-    // Emit the order over both kinds of edge. A node already on the stack closes
-    // a cycle, and that cycle carries at least one peer edge because the install
-    // edges were just proved acyclic — but the back edge that reaches the stacked
-    // node is not necessarily the peer one, so the post-condition below decides
-    // whether the emitted order survived.
-    const ordered: ReleaseMember[] = []
-    const droppedPeerEdges: DroppedPeerEdge[] = []
-    const placed = new Set<string>()
-    const onStack = new Set<string>()
-    // Members reachable from one member through install edges. A peer edge is
-    // dropped when the peer installs the member declaring it: honouring it would
-    // emit a package before something it installs, and the install edge wins.
-    const installClosure = (member: ReleaseMember): Set<string> => {
-      const reached = new Set<string>()
-      const walk = (current: ReleaseMember): void => {
-        for (const dependency of edges(current, INSTALL_SECTIONS)) {
-          if (reached.has(dependency.name)) continue
-          reached.add(dependency.name)
-          walk(dependency)
+    // successor: earlier package → later packages that must follow it.
+    const successors = new Map<string, Set<string>>()
+    const before = new Map<string, Set<string>>()
+    for (const member of byNameSorted) {
+      successors.set(member.name, new Set())
+      before.set(member.name, new Set())
+    }
+    const addConstraint = (earlier: string, later: string): boolean => {
+      if (earlier === later) return true
+      const next = successors.get(earlier)
+      if (next === undefined) return true
+      if (next.has(later)) return true
+      if (canReach(later, earlier, successors)) return false
+      next.add(later)
+      before.get(later)?.add(earlier)
+      return true
+    }
+    for (const member of byNameSorted) {
+      for (const dependency of edges(member, INSTALL_SECTIONS)) {
+        if (!addConstraint(dependency.name, member.name)) {
+          throw new Error(`dependency cycle in release family ${this.id}: ${dependency.name} -> ${member.name}`)
         }
       }
-      walk(member)
-      return reached
     }
-    const visit = (member: ReleaseMember): void => {
-      if (placed.has(member.name) || onStack.has(member.name)) return
-      onStack.add(member.name)
-      for (const dependency of edges(member, INSTALL_SECTIONS)) visit(dependency)
-      for (const peer of edges(member, PEER_SECTIONS)) {
-        if (installClosure(peer).has(member.name)) {
-          droppedPeerEdges.push({ consumer: member.name, peer: peer.name })
-          continue
-        }
-        // A peer already on the stack is an ancestor, so it publishes after this
-        // member rather than before it: the edge is dropped, not honoured.
-        if (onStack.has(peer.name)) droppedPeerEdges.push({ consumer: member.name, peer: peer.name })
-        visit(peer)
-      }
-      onStack.delete(member.name)
-      placed.add(member.name)
-      ordered.push(member)
-    }
-    for (const member of byNameSorted) visit(member)
 
-    // A cycle mixing both kinds of edge can put an install edge's target on the
-    // stack, where the traversal skips it like a peer edge and emits a consumer
-    // before something it installs. Nothing downstream can detect that, and it
-    // would only surface as an unresolvable install for whoever consumes the
-    // published packages, so the emitted order is checked against the edges it
-    // exists to honour.
+    const droppedPeerEdges: DroppedPeerEdge[] = []
+    for (const member of byNameSorted) {
+      for (const peer of edges(member, PEER_SECTIONS)) {
+        if (!addConstraint(peer.name, member.name)) {
+          droppedPeerEdges.push({ consumer: member.name, peer: peer.name })
+        }
+      }
+    }
+
+    const remaining = new Map(byNameSorted.map(member => [member.name, before.get(member.name)?.size ?? 0]))
+    const ready = byNameSorted.filter(member => remaining.get(member.name) === 0).map(member => member.name)
+    const ordered: ReleaseMember[] = []
+    while (ready.length > 0) {
+      const name = ready.shift()
+      if (name === undefined) break
+      const member = byName.get(name)
+      if (member === undefined) continue
+      ordered.push(member)
+      const later = [...(successors.get(name) ?? [])].sort((left, right) => left.localeCompare(right))
+      for (const next of later) {
+        const nextRemaining = (remaining.get(next) ?? 0) - 1
+        remaining.set(next, nextRemaining)
+        if (nextRemaining !== 0) continue
+        const insertAt = ready.findIndex(candidate => candidate.localeCompare(next) > 0)
+        if (insertAt === -1) ready.push(next)
+        else ready.splice(insertAt, 0, next)
+      }
+    }
+    if (ordered.length !== members.length) {
+      throw new Error(
+        `release family ${this.id}: publish order could not place every member after accepting every install edge`,
+      )
+    }
+
     const position = new Map(ordered.map((entry, index) => [entry.name, index]))
     for (const [index, member] of ordered.entries()) {
       for (const dependency of edges(member, INSTALL_SECTIONS)) {

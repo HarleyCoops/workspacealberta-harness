@@ -197,7 +197,7 @@ describe('release families', () => {
     ])
   })
 
-  it('refuses an order that would publish a consumer before a dependency it installs', () => {
+  it('honours an install edge when peer edges would otherwise close a mixed cycle', () => {
     const dsh = releaseFamily('wa')
     const members = [
       member('packages/a/alpha', '@workspacealberta/wa-alpha', { peerDependencies: { '@workspacealberta/wa-bravo': 'workspace:^' } }),
@@ -205,11 +205,67 @@ describe('release families', () => {
       member('packages/a/charlie', '@workspacealberta/wa-charlie', { dependencies: { '@workspacealberta/wa-alpha': 'workspace:^' } }),
     ]
 
-    // A cycle of two peer edges closed by one install edge: dropping a peer edge
-    // would order this, and the traversal drops the install edge instead. That
-    // order would publish charlie before the alpha it installs, so it is refused
-    // here rather than published.
-    expect(() => { dsh.publishOrder(members) }).toThrow(/no publish order honours @workspacealberta\/wa-charlie -> @workspacealberta\/wa-alpha/)
+    // Two peer edges plus one install edge are orderable if the peer that would
+    // put charlie before the alpha it installs is the one dropped.
+    const plan = dsh.publishOrder(members)
+    expect(plan.order.map(entry => entry.name)).toEqual([
+      '@workspacealberta/wa-bravo',
+      '@workspacealberta/wa-alpha',
+      '@workspacealberta/wa-charlie',
+    ])
+    expect(plan.droppedPeerEdges).toEqual([
+      { consumer: '@workspacealberta/wa-bravo', peer: '@workspacealberta/wa-charlie' },
+    ])
+  })
+
+  it('honours install edges when a name that sorts first peers into a mixed cycle', () => {
+    const dsh = releaseFamily('wa')
+    const members = [
+      member('packages/client/grid', '@workspacealberta/ui-alberta-grid', {
+        peerDependencies: { '@workspacealberta/wa-client-runtime': 'workspace:^' },
+      }),
+      member('packages/client/runtime', '@workspacealberta/wa-client-runtime', {
+        peerDependencies: {
+          '@workspacealberta/wa-api-remotes': 'workspace:^',
+          '@workspacealberta/wa-host-apiproxy': 'workspace:^',
+        },
+      }),
+      member('packages/api/remotes', '@workspacealberta/wa-api-remotes', {
+        peerDependencies: { '@workspacealberta/wa-api-gateway': 'workspace:^' },
+      }),
+      member('packages/api/gateway', '@workspacealberta/wa-api-gateway', {
+        peerDependencies: { '@workspacealberta/wa-client-connection': 'workspace:^' },
+      }),
+      member('packages/client/connection', '@workspacealberta/wa-client-connection', {
+        peerDependencies: { '@workspacealberta/wa-host-apiproxy': 'workspace:^' },
+      }),
+      member('packages/host/apiproxy', '@workspacealberta/wa-host-apiproxy', {
+        dependencies: { '@workspacealberta/wa-api-remotes': 'workspace:^' },
+      }),
+    ]
+
+    const plan = dsh.publishOrder(members)
+    const position = new Map(plan.order.map((entry, index) => [entry.name, index]))
+    const remotes = position.get('@workspacealberta/wa-api-remotes')
+    const host = position.get('@workspacealberta/wa-host-apiproxy')
+    expect(remotes).toBeTypeOf('number')
+    expect(host).toBeTypeOf('number')
+    if (remotes === undefined || host === undefined) return
+    expect(remotes).toBeLessThan(host)
+  })
+
+  it('orders the wa family so every install edge is honoured', () => {
+    const family = releaseFamily('wa')
+    const members = family.members(resolve(import.meta.dirname, '../..'))
+    const plan = family.publishOrder(members)
+    expect(plan.order).toHaveLength(members.length)
+    const position = new Map(plan.order.map((entry, index) => [entry.name, index]))
+    const remotes = position.get('@workspacealberta/wa-api-remotes')
+    const host = position.get('@workspacealberta/wa-host-apiproxy')
+    expect(remotes).toBeTypeOf('number')
+    expect(host).toBeTypeOf('number')
+    if (remotes === undefined || host === undefined) return
+    expect(remotes).toBeLessThan(host)
   })
 
   it('ignores devDependencies when ordering', () => {
