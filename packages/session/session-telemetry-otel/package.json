@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-session-telemetry-otel",
+  "name": "@workspacealberta/wa-session-telemetry-otel",
   "description": "OpenTelemetry backend for the DeepSeek Harness telemetry seam: hands captured session records to the OTel JS SDK's log pipeline",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -38,25 +38,25 @@
     "@opentelemetry/otlp-exporter-base": "^0.220.0",
     "@opentelemetry/resources": "^2.9.0",
     "@opentelemetry/sdk-logs": "^0.220.0",
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@workspacealberta/schemastery": "workspace:^"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-command-feedback": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-telemetry": "workspace:^",
-    "@deepseek-ai/dsh-anonymous-user-id": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-command-feedback": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-telemetry": "workspace:^",
+    "@workspacealberta/wa-anonymous-user-id": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis-plugin-loader": "workspace:^",
-    "@deepseek-ai/dsh-command-feedback": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-telemetry": "workspace:^",
-    "@deepseek-ai/dsh-anonymous-user-id": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/cordis-plugin-loader": "workspace:^",
+    "@workspacealberta/wa-command-feedback": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-telemetry": "workspace:^",
+    "@workspacealberta/wa-anonymous-user-id": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   }
 }

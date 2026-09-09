@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-host-apiproxy`.
- * @module @deepseek-ai/dsh-host-apiproxy/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-host-apiproxy`.
+ * @module @workspacealberta/wa-host-apiproxy/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-host-apiproxy'
+const PACKAGE_NAME = '@workspacealberta/wa-host-apiproxy'
 
 /** Cordis companion plugin name. */
 export const name = 'host-apiproxy-invariant'

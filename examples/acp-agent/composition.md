@@ -8,101 +8,101 @@ The ACP demo exposes fresh baseline-prompt agent sessions to programmatic client
 ```mermaid
 flowchart LR
   cfg["examples/acp-agent<br/>cordis.yml"]
-  plugin_acp_llm_deepseek["llm-deepseek<br/>@deepseek-ai/dsh-llm-deepseek"]
+  plugin_acp_llm_deepseek["llm-deepseek<br/>@workspacealberta/wa-llm-deepseek"]
   cfg --> plugin_acp_llm_deepseek
-  plugin_acp_sandbox["sandbox<br/>@deepseek-ai/dsh-sandbox-local"]
+  plugin_acp_sandbox["sandbox<br/>@workspacealberta/wa-sandbox-local"]
   cfg --> plugin_acp_sandbox
-  plugin_acp_sandbox_policy["sandbox-policy<br/>@deepseek-ai/dsh-sandbox-policy"]
+  plugin_acp_sandbox_policy["sandbox-policy<br/>@workspacealberta/wa-sandbox-policy"]
   cfg --> plugin_acp_sandbox_policy
-  plugin_acp_subprocess["subprocess<br/>@deepseek-ai/dsh-subprocess-local"]
+  plugin_acp_subprocess["subprocess<br/>@workspacealberta/wa-subprocess-local"]
   cfg --> plugin_acp_subprocess
-  plugin_acp_bash["bash<br/>@deepseek-ai/dsh-bash-sandbox"]
+  plugin_acp_bash["bash<br/>@workspacealberta/wa-bash-sandbox"]
   cfg --> plugin_acp_bash
-  plugin_acp_approval["approval<br/>@deepseek-ai/dsh-user-approval"]
+  plugin_acp_approval["approval<br/>@workspacealberta/wa-user-approval"]
   cfg --> plugin_acp_approval
-  plugin_acp_acp_agent["acp-agent<br/>@deepseek-ai/dsh-acp-demo"]
+  plugin_acp_acp_agent["acp-agent<br/>@workspacealberta/wa-acp-demo"]
   cfg --> plugin_acp_acp_agent
-  plugin_acp_acp_agent --> bundle_agent_core["@deepseek-ai/dsh-agent-spine-demo"]
-  plugin_acp_acp_agent --> bundle_jsonl["@deepseek-ai/dsh-session-persistence-jsonl"]
-  plugin_acp_acp_agent --> entrypoint_acp["@deepseek-ai/dsh-acp<br/>automation-only JSON-RPC stdio<br/>fresh sessions created by client"]
+  plugin_acp_acp_agent --> bundle_agent_core["@workspacealberta/wa-agent-spine-demo"]
+  plugin_acp_acp_agent --> bundle_jsonl["@workspacealberta/wa-session-persistence-jsonl"]
+  plugin_acp_acp_agent --> entrypoint_acp["@workspacealberta/wa-acp<br/>automation-only JSON-RPC stdio<br/>fresh sessions created by client"]
   bundle_agent_core --> spine_llm["ctx.llm"]
   bundle_agent_core --> spine_sessions["ctx.sessions"]
   bundle_agent_core --> spine_tools["ctx.tools + tool-bash"]
   bundle_agent_core --> spine_loop["ctx.agents + ctx.agentLoop"]
-  plugin_acp_token_meter["token-meter<br/>@deepseek-ai/dsh-token-meter"]
+  plugin_acp_token_meter["token-meter<br/>@workspacealberta/wa-token-meter"]
   cfg --> plugin_acp_token_meter
-  plugin_acp_compaction_basic["compaction-basic<br/>@deepseek-ai/dsh-compaction-basic"]
+  plugin_acp_compaction_basic["compaction-basic<br/>@workspacealberta/wa-compaction-basic"]
   cfg --> plugin_acp_compaction_basic
-  plugin_acp_session_projection["session-projection<br/>@deepseek-ai/dsh-session-projection"]
+  plugin_acp_session_projection["session-projection<br/>@workspacealberta/wa-session-projection"]
   cfg --> plugin_acp_session_projection
-  plugin_acp_subagent["subagent<br/>@deepseek-ai/dsh-subagent"]
+  plugin_acp_subagent["subagent<br/>@workspacealberta/wa-subagent"]
   cfg --> plugin_acp_subagent
-  plugin_acp_subagent_spawn_in_process["subagent-spawn-in-process<br/>@deepseek-ai/dsh-subagent-spawn-in-process"]
+  plugin_acp_subagent_spawn_in_process["subagent-spawn-in-process<br/>@workspacealberta/wa-subagent-spawn-in-process"]
   cfg --> plugin_acp_subagent_spawn_in_process
-  plugin_acp_subagent_fork_in_process["subagent-fork-in-process<br/>@deepseek-ai/dsh-subagent-fork-in-process"]
+  plugin_acp_subagent_fork_in_process["subagent-fork-in-process<br/>@workspacealberta/wa-subagent-fork-in-process"]
   cfg --> plugin_acp_subagent_fork_in_process
-  plugin_acp_tool_subagent_control["tool-subagent-control<br/>@deepseek-ai/dsh-tool-subagent-control"]
+  plugin_acp_tool_subagent_control["tool-subagent-control<br/>@workspacealberta/wa-tool-subagent-control"]
   cfg --> plugin_acp_tool_subagent_control
-  plugin_acp_tool_subagent_list_agents["tool-subagent-list-agents<br/>@deepseek-ai/dsh-tool-subagent-control/list-agents"]
+  plugin_acp_tool_subagent_list_agents["tool-subagent-list-agents<br/>@workspacealberta/wa-tool-subagent-control/list-agents"]
   cfg --> plugin_acp_tool_subagent_list_agents
-  plugin_acp_tool_subagent_report["tool-subagent-report<br/>@deepseek-ai/dsh-tool-subagent-report"]
+  plugin_acp_tool_subagent_report["tool-subagent-report<br/>@workspacealberta/wa-tool-subagent-report"]
   cfg --> plugin_acp_tool_subagent_report
-  plugin_acp_tool_subagent["tool-subagent<br/>@deepseek-ai/dsh-tool-subagent"]
+  plugin_acp_tool_subagent["tool-subagent<br/>@workspacealberta/wa-tool-subagent"]
   cfg --> plugin_acp_tool_subagent
-  plugin_acp_tool_subagent_fork["tool-subagent-fork<br/>@deepseek-ai/dsh-tool-subagent"]
+  plugin_acp_tool_subagent_fork["tool-subagent-fork<br/>@workspacealberta/wa-tool-subagent"]
   cfg --> plugin_acp_tool_subagent_fork
-  plugin_acp_workflow_worker_thread["workflow-worker-thread<br/>@deepseek-ai/dsh-workflow-worker-thread"]
+  plugin_acp_workflow_worker_thread["workflow-worker-thread<br/>@workspacealberta/wa-workflow-worker-thread"]
   cfg --> plugin_acp_workflow_worker_thread
-  plugin_acp_tool_workflow["tool-workflow<br/>@deepseek-ai/dsh-tool-workflow"]
+  plugin_acp_tool_workflow["tool-workflow<br/>@workspacealberta/wa-tool-workflow"]
   cfg --> plugin_acp_tool_workflow
-  plugin_acp_tool_ralph["tool-ralph<br/>@deepseek-ai/dsh-tool-ralph"]
+  plugin_acp_tool_ralph["tool-ralph<br/>@workspacealberta/wa-tool-ralph"]
   cfg --> plugin_acp_tool_ralph
-  plugin_acp_tool_todo["tool-todo<br/>@deepseek-ai/dsh-tool-todo"]
+  plugin_acp_tool_todo["tool-todo<br/>@workspacealberta/wa-tool-todo"]
   cfg --> plugin_acp_tool_todo
-  plugin_acp_repeat_tool_reminder["repeat-tool-reminder<br/>@deepseek-ai/dsh-repeat-tool-reminder"]
+  plugin_acp_repeat_tool_reminder["repeat-tool-reminder<br/>@workspacealberta/wa-repeat-tool-reminder"]
   cfg --> plugin_acp_repeat_tool_reminder
-  plugin_acp_fs_sandbox["fs-sandbox<br/>@deepseek-ai/dsh-fs-sandbox"]
+  plugin_acp_fs_sandbox["fs-sandbox<br/>@workspacealberta/wa-fs-sandbox"]
   cfg --> plugin_acp_fs_sandbox
-  plugin_acp_fs_observation_policy["fs-observation-policy<br/>@deepseek-ai/dsh-fs-observation-policy"]
+  plugin_acp_fs_observation_policy["fs-observation-policy<br/>@workspacealberta/wa-fs-observation-policy"]
   cfg --> plugin_acp_fs_observation_policy
-  plugin_acp_tool_fs["tool-fs<br/>@deepseek-ai/dsh-tool-fs"]
+  plugin_acp_tool_fs["tool-fs<br/>@workspacealberta/wa-tool-fs"]
   cfg --> plugin_acp_tool_fs
-  plugin_acp_hooks_claude_code["hooks-claude-code<br/>@deepseek-ai/dsh-hooks-claude-code"]
+  plugin_acp_hooks_claude_code["hooks-claude-code<br/>@workspacealberta/wa-hooks-claude-code"]
   cfg --> plugin_acp_hooks_claude_code
-  plugin_acp_hooks_codex["hooks-codex<br/>@deepseek-ai/dsh-hooks-codex"]
+  plugin_acp_hooks_codex["hooks-codex<br/>@workspacealberta/wa-hooks-codex"]
   cfg --> plugin_acp_hooks_codex
 ```
 
 | Plugin id | Package / module |
 | --- | --- |
-| `llm-deepseek` | `@deepseek-ai/dsh-llm-deepseek` |
-| `sandbox` | `@deepseek-ai/dsh-sandbox-local` |
-| `sandbox-policy` | `@deepseek-ai/dsh-sandbox-policy` |
-| `subprocess` | `@deepseek-ai/dsh-subprocess-local` |
-| `bash` | `@deepseek-ai/dsh-bash-sandbox` |
-| `approval` | `@deepseek-ai/dsh-user-approval` |
-| `acp-agent` | `@deepseek-ai/dsh-acp-demo` |
-| `token-meter` | `@deepseek-ai/dsh-token-meter` |
-| `compaction-basic` | `@deepseek-ai/dsh-compaction-basic` |
-| `session-projection` | `@deepseek-ai/dsh-session-projection` |
-| `subagent` | `@deepseek-ai/dsh-subagent` |
-| `subagent-spawn-in-process` | `@deepseek-ai/dsh-subagent-spawn-in-process` |
-| `subagent-fork-in-process` | `@deepseek-ai/dsh-subagent-fork-in-process` |
-| `tool-subagent-control` | `@deepseek-ai/dsh-tool-subagent-control` |
-| `tool-subagent-list-agents` | `@deepseek-ai/dsh-tool-subagent-control/list-agents` |
-| `tool-subagent-report` | `@deepseek-ai/dsh-tool-subagent-report` |
-| `tool-subagent` | `@deepseek-ai/dsh-tool-subagent` |
-| `tool-subagent-fork` | `@deepseek-ai/dsh-tool-subagent` |
-| `workflow-worker-thread` | `@deepseek-ai/dsh-workflow-worker-thread` |
-| `tool-workflow` | `@deepseek-ai/dsh-tool-workflow` |
-| `tool-ralph` | `@deepseek-ai/dsh-tool-ralph` |
-| `tool-todo` | `@deepseek-ai/dsh-tool-todo` |
-| `repeat-tool-reminder` | `@deepseek-ai/dsh-repeat-tool-reminder` |
-| `fs-sandbox` | `@deepseek-ai/dsh-fs-sandbox` |
-| `fs-observation-policy` | `@deepseek-ai/dsh-fs-observation-policy` |
-| `tool-fs` | `@deepseek-ai/dsh-tool-fs` |
-| `hooks-claude-code` | `@deepseek-ai/dsh-hooks-claude-code` |
-| `hooks-codex` | `@deepseek-ai/dsh-hooks-codex` |
+| `llm-deepseek` | `@workspacealberta/wa-llm-deepseek` |
+| `sandbox` | `@workspacealberta/wa-sandbox-local` |
+| `sandbox-policy` | `@workspacealberta/wa-sandbox-policy` |
+| `subprocess` | `@workspacealberta/wa-subprocess-local` |
+| `bash` | `@workspacealberta/wa-bash-sandbox` |
+| `approval` | `@workspacealberta/wa-user-approval` |
+| `acp-agent` | `@workspacealberta/wa-acp-demo` |
+| `token-meter` | `@workspacealberta/wa-token-meter` |
+| `compaction-basic` | `@workspacealberta/wa-compaction-basic` |
+| `session-projection` | `@workspacealberta/wa-session-projection` |
+| `subagent` | `@workspacealberta/wa-subagent` |
+| `subagent-spawn-in-process` | `@workspacealberta/wa-subagent-spawn-in-process` |
+| `subagent-fork-in-process` | `@workspacealberta/wa-subagent-fork-in-process` |
+| `tool-subagent-control` | `@workspacealberta/wa-tool-subagent-control` |
+| `tool-subagent-list-agents` | `@workspacealberta/wa-tool-subagent-control/list-agents` |
+| `tool-subagent-report` | `@workspacealberta/wa-tool-subagent-report` |
+| `tool-subagent` | `@workspacealberta/wa-tool-subagent` |
+| `tool-subagent-fork` | `@workspacealberta/wa-tool-subagent` |
+| `workflow-worker-thread` | `@workspacealberta/wa-workflow-worker-thread` |
+| `tool-workflow` | `@workspacealberta/wa-tool-workflow` |
+| `tool-ralph` | `@workspacealberta/wa-tool-ralph` |
+| `tool-todo` | `@workspacealberta/wa-tool-todo` |
+| `repeat-tool-reminder` | `@workspacealberta/wa-repeat-tool-reminder` |
+| `fs-sandbox` | `@workspacealberta/wa-fs-sandbox` |
+| `fs-observation-policy` | `@workspacealberta/wa-fs-observation-policy` |
+| `tool-fs` | `@workspacealberta/wa-tool-fs` |
+| `hooks-claude-code` | `@workspacealberta/wa-hooks-claude-code` |
+| `hooks-codex` | `@workspacealberta/wa-hooks-codex` |
 
 Source config: [`examples/acp-agent/cordis.yml`](cordis.yml).
 

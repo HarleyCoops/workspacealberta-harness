@@ -1,4 +1,4 @@
-# `@deepseek-ai/dsh-loader-smoke`
+# `@workspacealberta/wa-loader-smoke`
 
 [English](README.md) | 中文
 

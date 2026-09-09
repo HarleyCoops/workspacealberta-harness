@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-session-reference",
+  "name": "@workspacealberta/wa-session-reference",
   "description": "Cross-session snapshot references and durable untrusted model context (ctx.sessionReferenceResolver)",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -49,29 +49,29 @@
   ],
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^",
+    "@workspacealberta/schemastery": "workspace:^",
     "zod": "^4.4.3"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-compaction": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-output-retention": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-query": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-compaction": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-output-retention": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-query": "workspace:^",
+    "@workspacealberta/wa-typert-protocol": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-compaction": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-output-retention": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-query": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-compaction": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-output-retention": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-query": "workspace:^",
+    "@workspacealberta/wa-typert-protocol": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   }
 }

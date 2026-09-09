@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-tool-bash-persistent
+# @workspacealberta/wa-tool-bash-persistent
 
 [English](README.md) | 中文
 

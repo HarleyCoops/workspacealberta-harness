@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-workflow-worker-thread",
+  "name": "@workspacealberta/wa-workflow-worker-thread",
   "description": "worker-thread workflow engine: executes model-written orchestration scripts off the host event loop, bridging agent() calls back to ctx.subagents",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -37,33 +37,33 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-subagent": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/dsh-workflow": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-brand": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-subagent": "workspace:^",
+    "@workspacealberta/wa-tools": "workspace:^",
+    "@workspacealberta/wa-workflow": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@workspacealberta/schemastery": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop": "workspace:^",
-    "@deepseek-ai/dsh-agent-loop-testkit": "workspace:^",
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-subagent": "workspace:^",
-    "@deepseek-ai/dsh-subagent-spawn-in-process": "workspace:^",
-    "@deepseek-ai/dsh-system-prompt": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^",
-    "@deepseek-ai/dsh-workflow": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-agent-loop": "workspace:^",
+    "@workspacealberta/wa-agent-loop-testkit": "workspace:^",
+    "@workspacealberta/wa-brand": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-subagent": "workspace:^",
+    "@workspacealberta/wa-subagent-spawn-in-process": "workspace:^",
+    "@workspacealberta/wa-system-prompt": "workspace:^",
+    "@workspacealberta/wa-tools": "workspace:^",
+    "@workspacealberta/wa-workflow": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^",
     "tsx": "^4.19.2"
   }
 }

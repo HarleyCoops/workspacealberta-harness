@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-storage-sqlite
+# @workspacealberta/wa-storage-sqlite
 
 [English](README.md) | 中文
 

@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-settings
+# @workspacealberta/wa-settings
 
 [English](README.md) | 中文
 

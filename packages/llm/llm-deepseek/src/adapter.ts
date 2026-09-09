@@ -8,7 +8,7 @@
  * @module dsh-llm-deepseek/adapter
  */
 
-import { attributionHeaders, contentHasImage, CONTEXT_WINDOW_EXCEEDED_CODE, isContextWindowExceededError, isQuotaExceededError, LlmAdapter, LlmError, ProviderRequestId, QUOTA_EXCEEDED_CODE, ReasoningEffortId } from '@deepseek-ai/dsh-llm'
+import { attributionHeaders, contentHasImage, CONTEXT_WINDOW_EXCEEDED_CODE, isContextWindowExceededError, isQuotaExceededError, LlmAdapter, LlmError, ProviderRequestId, QUOTA_EXCEEDED_CODE, ReasoningEffortId } from '@workspacealberta/wa-llm'
 import type {
   GenerateOptions,
   LlmModelInfo,
@@ -17,11 +17,11 @@ import type {
   ModelModality,
   ResolvedRetryPolicy,
   StreamChunk,
-} from '@deepseek-ai/dsh-llm'
-import type { AttachmentStore } from '@deepseek-ai/dsh-attachment'
-import type { CredentialRef } from '@deepseek-ai/dsh-credentials'
-import { idleWatchdog, timeoutOf } from '@deepseek-ai/dsh-timeout'
-import type { AnonymousUserId } from '@deepseek-ai/dsh-anonymous-user-id'
+} from '@workspacealberta/wa-llm'
+import type { AttachmentStore } from '@workspacealberta/wa-attachment'
+import type { CredentialRef } from '@workspacealberta/wa-credentials'
+import { idleWatchdog, timeoutOf } from '@workspacealberta/wa-timeout'
+import type { AnonymousUserId } from '@workspacealberta/wa-anonymous-user-id'
 import { serializeRequest, serializeRequestWithImages } from './serialize.ts'
 import type { RequestDefaults } from './serialize.ts'
 import { parseSse } from './sse.ts'

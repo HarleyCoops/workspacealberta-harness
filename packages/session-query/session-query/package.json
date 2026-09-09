@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-session-query",
+  "name": "@workspacealberta/wa-session-query",
   "description": "Combined session query service contract with concrete reads, traces, and filters",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -32,26 +32,26 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-brand": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-title": "workspace:^",
+    "@workspacealberta/wa-session-persistence": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "peerDependenciesMeta": {
-    "@deepseek-ai/dsh-session-persistence": {
+    "@workspacealberta/wa-session-persistence": {
       "optional": true
     }
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-brand": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-title": "workspace:^",
+    "@workspacealberta/wa-session-persistence": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   }
 }

@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-hmr
+# @workspacealberta/wa-client-hmr
 
 English | [中文](README.zh.md)
 

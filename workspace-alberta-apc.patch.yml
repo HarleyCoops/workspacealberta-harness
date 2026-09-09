@@ -2,7 +2,7 @@
 # Set WA_APC_PYTHON to the connector virtualenv's absolute Python executable.
 - insert:
     - id: mcp-apc-local
-      name: '@deepseek-ai/dsh-mcp-client'
+      name: '@workspacealberta/wa-mcp-client'
       config:
         transport: stdio
         serverName: apc_local

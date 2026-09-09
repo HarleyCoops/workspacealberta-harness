@@ -1,12 +1,12 @@
-import type { Context } from '@deepseek-ai/cordis'
+import type { Context } from '@workspacealberta/cordis'
 import type {
   CompactionSummaryNode, ConversationMatch, ConversationNodeContext, ConversationNodeDefinition,
-} from '@deepseek-ai/dsh-client-runtime/client'
-import type {} from '@deepseek-ai/dsh-compaction/types'
+} from '@workspacealberta/wa-client-runtime/client'
+import type {} from '@workspacealberta/wa-compaction/types'
 import { chatNode } from './common.ts'
 import { compactSource, compactSummary, updateCompactionState } from './command.ts'
 
-declare module '@deepseek-ai/dsh-client-ui-conversation/client' {
+declare module '@workspacealberta/wa-client-ui-conversation/client' {
   interface ChatNodeDataMap {
     /** Automatic compaction checkpoint marker. */
     compaction: CompactionSummaryNode

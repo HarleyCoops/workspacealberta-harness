@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-pwsh-sandbox`.
- * @module @deepseek-ai/dsh-pwsh-sandbox/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-pwsh-sandbox`.
+ * @module @workspacealberta/wa-pwsh-sandbox/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-pwsh-sandbox'
+const PACKAGE_NAME = '@workspacealberta/wa-pwsh-sandbox'
 
 /** Cordis companion plugin name. */
 export const name = 'pwsh-sandbox-invariant'

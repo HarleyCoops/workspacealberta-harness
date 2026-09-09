@@ -36,7 +36,7 @@ def main():
     env = {**os.environ, "WA_APC_PYTHON": str(PYTHON), "DSH_TELEMETRY_DISABLED": "1"}
     arguments = ["--dump-config"] if sys.argv[1] == "config" else [
         "--host", "127.0.0.1", "--port", "3081", *sys.argv[2:]]
-    raise SystemExit(subprocess.call([pnpm, "dsh", "--profile", "web", "--patch",
+    raise SystemExit(subprocess.call([pnpm, "wa", "--profile", "web", "--patch",
         "workspace-alberta.patch.yml", "--patch", "workspace-alberta-apc.patch.yml",
         *arguments], cwd=ROOT, env=env))
 

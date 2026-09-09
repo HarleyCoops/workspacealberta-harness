@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-attachment",
+  "name": "@workspacealberta/wa-client-ui-attachment",
   "description": "Dynamic attachment presentation plugin for conversation input and message-image slots",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -32,7 +32,7 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-ui-conversation"
+        "@workspacealberta/wa-client-ui-conversation"
       ],
       "platform": "web"
     }
@@ -46,17 +46,17 @@
     "clsx": "^2.0.0"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
     "@types/react": "~18.3.1",
     "@types/react-dom": "~18.3.0",
-    "@deepseek-ai/dsh-client-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-conversation": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-primitives": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
+    "@workspacealberta/wa-client-runtime": "workspace:^",
+    "@workspacealberta/wa-client-ui-conversation": "workspace:^",
+    "@workspacealberta/wa-client-ui-primitives": "workspace:^",
+    "@workspacealberta/wa-client-ui-slots": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@deepseek-ai/dsh-attachment": "workspace:^"
+    "@workspacealberta/wa-attachment": "workspace:^"
   },
   "files": [
     "lib/index.js",
@@ -65,10 +65,10 @@
     "lib/types/**/*.d.ts"
   ],
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-client-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-conversation": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^"
+    "@workspacealberta/cordis": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-client-runtime": "workspace:^",
+    "@workspacealberta/wa-client-ui-conversation": "workspace:^",
+    "@workspacealberta/wa-attachment": "workspace:^"
   }
 }

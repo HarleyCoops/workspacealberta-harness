@@ -1,6 +1,6 @@
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@workspacealberta/cordis'
 import { describe, expect, it } from 'vitest'
-import InvariantRegistry from '@deepseek-ai/dsh-invariants'
+import InvariantRegistry from '@workspacealberta/wa-invariants'
 import * as PluginInventoryInvariant from '../src/invariant.ts'
 
 describe('plugin-inventory invariant companion', () => {

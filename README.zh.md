@@ -6,7 +6,7 @@
 
 <p align="center"><em>加拿大战时工业生产，图片来自加拿大图书档案馆。</em></p>
 
-面向 CEO、为实际工作构建与交付而定制的企业级 AI 终端。它基于 MIT 许可的 [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（`dsh`），由 Warre & Vavasour 作为产品运营。启动说明见 [WORKSPACE_ALBERTA.md](WORKSPACE_ALBERTA.md)。
+面向 CEO、为实际工作构建与交付而定制的企业级 AI 终端。Workspace Alberta 是 Warre & Vavasour 产品。操作员 CLI 为 `wa`；软件包使用 `@workspacealberta` 作用域。启动说明见 [WORKSPACE_ALBERTA.md](WORKSPACE_ALBERTA.md)。继承的 MIT 源码与声明见 [LICENSE](LICENSE) 和 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ## 给“要是能这样就好了……”一个地方
 
@@ -108,12 +108,11 @@ workspaceAlberta 建设加拿大能力，并明确说明处理路径：
 
 我们承认这些成本，公开讨论而不掩饰。我们的回应是加拿大基础设施、在你拥有的硬件上使用规模合适的模型，以及本地数据保留，避免重复的云端扩张。仿佛回到 1834 年，铁路已建，轨道周二就到。世界正在改变，workspaceAlberta 帮助你走在变化之前。
 
-## 上游：DeepSeek Harness
+## 架构与文档
 
-本仓库在上游 `dsh` 代码库中承载 workspaceAlberta 部署层，包括 `workspace-alberta` 分支上的品牌、模型路径、预设和部署补丁。上游项目采用一切皆插件的架构，由 [Cordis](https://github.com/cordiverse/cordis) 驱动，目前处于开发者预览阶段，迭代迅速；同步上游时需要预期兼容性破坏。
+Workspace Alberta 是由 [Cordis](https://github.com/cordiverse/cordis) 驱动的插件运行时。每项能力都是 `@workspacealberta` 下的一个包。
 
-- 上游文档：[开发指南](docs/development.md)、[架构](docs/architecture.md)、[Web UI 指南](docs/user/guide/index.md)（[English](README.md)）
-- 社区：上游 [GitHub Discussions](https://github.com/deepseek-ai/deepseek-harness/discussions)、[`dsh-plugin`](https://github.com/topics/dsh-plugin) 主题和上游 [Discord](https://discord.gg/Ycq5dCaS4)
+- 文档：[开发指南](docs/development.md)、[架构](docs/architecture.md)、[Web UI 指南](docs/user/guide/index.md)（[English](README.md)）
 
 ## 运行
 
@@ -121,7 +120,7 @@ workspaceAlberta 建设加拿大能力，并明确说明处理路径：
 
 ### 从源码运行
 
-使用 `pnpm install` 安装依赖，再按部署说明执行构建和启动命令。上游贡献者工作流程见[开发指南](docs/development.md)。
+使用 `pnpm install` 安装依赖，再按部署说明执行构建和启动命令。贡献者工作流程见[开发指南](docs/development.md)。
 
 ## 许可证
 

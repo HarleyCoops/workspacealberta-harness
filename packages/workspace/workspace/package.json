@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-workspace",
+  "name": "@workspacealberta/wa-workspace",
   "description": "Workspace entity registry (ctx.workspaceRegistry): durable workspace records with validated session attachment over the domain data form for the DeepSeek Harness",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -37,24 +37,24 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-storage-domain": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-storage": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-brand": "workspace:^",
+    "@workspacealberta/wa-storage-domain": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-persistence": "workspace:^",
+    "@workspacealberta/wa-storage": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "dependencies": {
     "zod": "^4.4.3"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-brand": "workspace:^",
-    "@deepseek-ai/dsh-storage-domain": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-storage": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-brand": "workspace:^",
+    "@workspacealberta/wa-storage-domain": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-persistence": "workspace:^",
+    "@workspacealberta/wa-storage": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   }
 }

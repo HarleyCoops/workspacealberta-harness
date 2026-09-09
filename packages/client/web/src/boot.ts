@@ -2,14 +2,14 @@
  * Web boot kernel. It owns only the module system, Cordis loader, and a
  * framework-free boot page. The dynamic UI renderer receives the mount
  * point after every client entry activates.
- * @module @deepseek-ai/dsh-client-web/src/boot
+ * @module @workspacealberta/wa-client-web/src/boot
  */
-import { Context } from '@deepseek-ai/cordis'
-import Loader from '@deepseek-ai/cordis-plugin-loader'
+import { Context } from '@workspacealberta/cordis'
+import Loader from '@workspacealberta/cordis-plugin-loader'
 import type {
   BootManifest, ClientModuleCreateOptions, ClientModuleSystem, DshWindow,
-} from '@deepseek-ai/dsh-client-modules/client'
-import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
+} from '@workspacealberta/wa-client-modules/client'
+import type {} from '@workspacealberta/wa-client-ui-renderer/client'
 import { BootPage, displayPluginId } from './boot-page.ts'
 import { getStaticModules } from './seed.ts'
 import { STATE_LABELS } from './loader-status.ts'

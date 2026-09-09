@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-storage-sqlite",
+  "name": "@workspacealberta/wa-storage-sqlite",
   "description": "SQLite storage backend (kv facet) for the DeepSeek Harness storage hub",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -32,16 +32,16 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-storage": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-storage": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@workspacealberta/schemastery": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-storage": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-storage": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   }
 }

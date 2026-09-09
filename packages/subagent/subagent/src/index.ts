@@ -10,8 +10,8 @@
  * (`LlmRuntime.registerAdapter`), not the single-service bash executor.
  *
  * This package owns the Service Definition role of the capability seam. Service Providers
- * (`@deepseek-ai/dsh-subagent-spawn-in-process`, `-fork`, `-acp`) and the model-facing
- * consumer (`@deepseek-ai/dsh-tool-subagent`) are separate packages.
+ * (`@workspacealberta/wa-subagent-spawn-in-process`, `-fork`, `-acp`) and the model-facing
+ * consumer (`@workspacealberta/wa-tool-subagent`) are separate packages.
  *
  * Public operations express caller intent: `start` returns one published owned
  * one-shot run, `startContinuable` establishes a durable continuable child, and
@@ -28,16 +28,16 @@
  * serialization and hostile-input validation belong at real process, worker,
  * persistence, and model boundaries.
  *
- * @module @deepseek-ai/dsh-subagent
+ * @module @workspacealberta/wa-subagent
  */
 
-import { Context, Service } from '@deepseek-ai/cordis'
-import { scopeTarget } from '@deepseek-ai/dsh-scope'
-import type { Scoped } from '@deepseek-ai/dsh-scope'
-import { assertObjectJsonSchema } from '@deepseek-ai/dsh-tools'
-import type { ContentBlock, MessageId } from '@deepseek-ai/dsh-llm'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import type { SessionId } from '@deepseek-ai/dsh-session'
+import { Context, Service } from '@workspacealberta/cordis'
+import { scopeTarget } from '@workspacealberta/wa-scope'
+import type { Scoped } from '@workspacealberta/wa-scope'
+import { assertObjectJsonSchema } from '@workspacealberta/wa-tools'
+import type { ContentBlock, MessageId } from '@workspacealberta/wa-llm'
+import type { Agent } from '@workspacealberta/wa-agent'
+import type { SessionId } from '@workspacealberta/wa-session'
 import type {
   ContinuableCreateRequest,
   ContinuableCreateSpec,
@@ -126,7 +126,7 @@ export type { SubagentDescendantListEntry, SubagentListEntry } from './list-chil
 export type { SubagentRunEndInfo, SubagentRunInfo } from './types.ts'
 export type { SubagentIdentityProjection, SubagentTimingProjection } from './projection-types.ts'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@workspacealberta/cordis' {
   interface Context {
     subagents: SubagentRuntime
   }

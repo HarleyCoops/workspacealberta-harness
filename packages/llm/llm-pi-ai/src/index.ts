@@ -11,7 +11,7 @@
  *
  * ```yaml
  * - id: llm
- *   name: '@deepseek-ai/dsh-llm-pi-ai'
+ *   name: '@workspacealberta/wa-llm-pi-ai'
  *   config:
  *     providers:
  *       # Catalog route: everything but the credential comes from pi-ai.
@@ -52,14 +52,14 @@
  *               max: ultra
  * ```
  *
- * @module @deepseek-ai/dsh-llm-pi-ai
+ * @module @workspacealberta/wa-llm-pi-ai
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import { launchEnvironmentOf } from '@deepseek-ai/dsh-launch-environment'
-import { assertUsableApiKey, LlmError } from '@deepseek-ai/dsh-llm'
-import type { AdapterRegistrationHandle, DirectoryRegistrationHandle, LlmConfigurableProvider } from '@deepseek-ai/dsh-llm'
-import { deepEqualJson, installSettingsSection, settingsNamespace } from '@deepseek-ai/dsh-settings'
+import type { Context } from '@workspacealberta/cordis'
+import { launchEnvironmentOf } from '@workspacealberta/wa-launch-environment'
+import { assertUsableApiKey, LlmError } from '@workspacealberta/wa-llm'
+import type { AdapterRegistrationHandle, DirectoryRegistrationHandle, LlmConfigurableProvider } from '@workspacealberta/wa-llm'
+import { deepEqualJson, installSettingsSection, settingsNamespace } from '@workspacealberta/wa-settings'
 import { PiAiAdapter } from './adapter.ts'
 import { catalogProviderIds, catalogProviderTakesApiKey } from './catalog.ts'
 import { assertServiceable, Config, resolveProfiles } from './config.ts'

@@ -13,9 +13,9 @@ import { dirname, join, resolve } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { act, cleanup } from '@testing-library/react'
 import { afterEach, beforeEach, vi } from 'vitest'
-import { injectBootManifest, orderByModuleGraph } from '@deepseek-ai/dsh-client-modules'
-import type { ClientModuleLoaderTarget, WebBootEntry } from '@deepseek-ai/dsh-client-modules/client'
-import { AppWebEntry } from '@deepseek-ai/dsh-client-web'
+import { injectBootManifest, orderByModuleGraph } from '@workspacealberta/wa-client-modules'
+import type { ClientModuleLoaderTarget, WebBootEntry } from '@workspacealberta/wa-client-modules/client'
+import { AppWebEntry } from '@workspacealberta/wa-client-web'
 
 interface AssembledPlugin extends WebBootEntry {
   /** Absolute path to the built client artifact declared by this package. */
@@ -59,7 +59,7 @@ const BUNDLE_LAYERS = [
 const bundleResolvers = BUNDLE_LAYERS.map(layer => createRequire(layer.manifest))
 const webBundleResolver = bundleResolvers[1]
 if (webBundleResolver === undefined) throw new Error('assembled boot: web bundle resolver missing')
-const appBoot = await import(pathToFileURL(webBundleResolver.resolve('@deepseek-ai/dsh-app-boot')).href) as unknown as BootComposition
+const appBoot = await import(pathToFileURL(webBundleResolver.resolve('@workspacealberta/wa-app-boot')).href) as unknown as BootComposition
 
 function resolvePackageManifest(specifier: string): string | undefined {
   for (const require of bundleResolvers) {
@@ -81,7 +81,7 @@ function resolveClientExport(packagePath: string, pkg: ClientPackageManifest): s
   return resolve(dirname(packagePath), relative)
 }
 
-/** Derive the assembled browser graph from the same bundle patches and package declarations as `dsh web`. */
+/** Derive the assembled browser graph from the same bundle patches and package declarations as `wa web`. */
 function loadAssembledPlugins(): readonly AssembledPlugin[] {
   const entries = appBoot.composeEntries(BUNDLE_LAYERS.map(layer =>
     appBoot.loadOverlayPatches('assembled boot', layer.patch)))
@@ -199,7 +199,7 @@ export function mountAssembledApp(search = '?fixture'): void {
   if (facadeSource === undefined) throw new Error('missing injected ModuleLoader facade')
   ;(0, eval)(facadeSource)
   // Mirror the blocking Host-injected scripts before the Vite entry calls create().
-  for (const id of ['@deepseek-ai/dsh-client-modules', '@deepseek-ai/dsh-client-runtime']) {
+  for (const id of ['@workspacealberta/wa-client-modules', '@workspacealberta/wa-client-runtime']) {
     const plugin = PLUGINS.find(candidate => candidate.id === id)
     if (plugin === undefined) throw new Error(`missing parser-preloaded fixture row ${id}`)
     const code = bundles.get(plugin.url)

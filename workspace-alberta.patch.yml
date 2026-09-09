@@ -1,4 +1,4 @@
-# workspaceAlberta / Warre & Vavasour deployment layer for official dsh.
+# workspaceAlberta / Warre & Vavasour deployment patch for the wa CLI.
 # Secrets are resolved from the process environment and are never stored here.
 #
 # Web tooling runs entirely on our side: the seam selects the Cohere v2
@@ -51,10 +51,10 @@
         apiKeyEnv: COHERE_API_KEY
 
     - id: web-fetch-http
-      name: '@deepseek-ai/dsh-web-fetch-http'
+      name: '@workspacealberta/wa-web-fetch-http'
 
     - id: mcp-workspace-alberta
-      name: '@deepseek-ai/dsh-mcp-client'
+      name: '@workspacealberta/wa-mcp-client'
       config:
         transport: streamable-http
         serverName: workspace_alberta

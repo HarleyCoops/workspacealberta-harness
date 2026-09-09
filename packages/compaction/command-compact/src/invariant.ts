@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-command-compact`.
- * @module @deepseek-ai/dsh-command-compact/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-command-compact`.
+ * @module @workspacealberta/wa-command-compact/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-command-compact'
+const PACKAGE_NAME = '@workspacealberta/wa-command-compact'
 
 /** Cordis companion plugin name. */
 export const name = 'command-compact-invariant'

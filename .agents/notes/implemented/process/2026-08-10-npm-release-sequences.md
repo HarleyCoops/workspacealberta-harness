@@ -8,7 +8,7 @@ English | [中文](2026-08-10-npm-release-sequences.zh.md)
 
 This repository held three unrelated groups of publishable packages and no channel that sent any of them to a registry.
 
-`packages/*/*` and `apps/*` form the runtime surface of `@deepseek-ai/dsh`; `vendor/*` holds nine rescoped Cordis framework packages, each carrying its upstream version; `native/landlock-run/packages/*` holds Linux platform packages with their own workflow. The three differ in version baseline, change rate, and build requirements: dsh moves with the product, vendor moves only when upstream is re-synced or a local modification changes, and native needs a musl toolchain and one build per architecture. Forcing them through one pipeline means every product release republishes the framework and the native binaries.
+`packages/*/*` and `apps/*` form the runtime surface of `@workspacealberta/wa`; `vendor/*` holds nine rescoped Cordis framework packages, each carrying its upstream version; `native/landlock-run/packages/*` holds Linux platform packages with their own workflow. The three differ in version baseline, change rate, and build requirements: dsh moves with the product, vendor moves only when upstream is re-synced or a local modification changes, and native needs a musl toolchain and one build per architecture. Forcing them through one pipeline means every product release republishes the framework and the native binaries.
 
 Two hard blockers sat in the way. All 217 workspace manifests set `private: true`, which npm refuses to publish. The subtler one was 933 hand-written `peerDependencies: "^0.0.1"` entries between sibling dsh packages: `pnpm pack` substitutes the `workspace:` protocol but leaves semver ranges alone, and `^0.0.1` means `>=0.0.1 <0.0.2` — it excludes `0.0.2`, and semver excludes prereleases from a range without a prerelease of its own, so it excluded `0.0.1-rc.1` too. Those entries never failed only because the version never left `0.0.1`.
 
@@ -26,13 +26,13 @@ Two hard blockers sat in the way. All 217 workspace manifests set `private: true
 | vendored framework | the nine `vendor/*` packages | each package on its own version line | `vendor-<package>-v<version>` (one per package) | `release-vendor.yml` |
 | native | `native/landlock-run/packages/*` | its own `0.0.x` | `landlock-run-v<version>` | `landlock-run-release.yml` |
 
-All three publish to the `@deepseek-ai` scope on npmjs.com, and access is per sequence rather than per scope: the vendored framework and the native packages are `public`, the dsh family is `restricted` ([rationale](2026-08-13-public-vendor-and-native-sequences.md)). No publish path passes `--access`, because one flag cannot serve sequences that disagree and would override the manifest that owns the level.
+All three publish to the `@workspacealberta` scope on npmjs.com, and access is per sequence rather than per scope: the vendored framework and the native packages are `public`, the dsh family is `restricted` ([rationale](2026-08-13-public-vendor-and-native-sequences.md)). No publish path passes `--access`, because one flag cannot serve sequences that disagree and would override the manifest that owns the level.
 
 ### Versions land in the repository from a local command; CI only checks and uploads
 
 Each sequence has one bump-and-commit command: it derives the target version, writes it into the relevant manifests, runs `pnpm install --lockfile-only`, and commits the manifests with the lockfile. The published version is therefore readable from the repository. A human creates the tag after the commit merges to master; CI never writes to the repository and needs no write permission.
 
-`release:dsh` accepts `major`, `minor`, `patch`, or an explicit version, and writes one version across the publishable family, every private package under `packages/*/*`, **and the workspace root**. Private packages receive no release tag and remain outside pack and publish; they follow the version because the workspace constraint requires every dsh package's version to equal the root's. The root check accepts a prerelease segment. A prerelease such as `0.0.1-rc.1` drives pack, the installed-artifact probe, and one real private publication before numbered versions follow. The dist-tag decision is the one `landlock-run-release.yml` already made: a version with a prerelease segment publishes under `--tag next`, anything else takes `latest`.
+`release:wa` accepts `major`, `minor`, `patch`, or an explicit version, and writes one version across the publishable family, every private package under `packages/*/*`, **and the workspace root**. Private packages receive no release tag and remain outside pack and publish; they follow the version because the workspace constraint requires every dsh package's version to equal the root's. The root check accepts a prerelease segment. A prerelease such as `0.0.1-rc.1` drives pack, the installed-artifact probe, and one real private publication before numbered versions follow. The dist-tag decision is the one `landlock-run-release.yml` already made: a version with a prerelease segment publishes under `--tag next`, anything else takes `latest`.
 
 ### vendor: publish what changed, and let tags be the ledger
 
@@ -40,15 +40,15 @@ The vendored packages are decoupled from upstream by their scope but keep their 
 
 | Package | Upstream version | First published version |
 |---|---|---|
-| `@deepseek-ai/cordis` | 4.0.0-rc.7 | 4.0.1 |
-| `@deepseek-ai/cordis-plugin-loader` | 1.0.0-rc.5 | 1.0.1 |
-| `@deepseek-ai/cosmokit` | 1.8.1 | 1.8.2 |
-| `@deepseek-ai/schemastery` | 3.18.0 | 3.18.1 |
-| `@deepseek-ai/cordis-plugin-hmr` | 1.0.15 | 1.0.16 |
-| `@deepseek-ai/cordis-plugin-include` | 1.0.4 | 1.0.5 |
-| `@deepseek-ai/cordis-plugin-timer` | 1.1.2 | 1.1.3 |
-| `@deepseek-ai/cordis-plugin-group` | 1.0.0 | 1.0.1 |
-| `@deepseek-ai/cordis-plugin-logger-console` | 1.0.0 | 1.0.1 |
+| `@workspacealberta/cordis` | 4.0.0-rc.7 | 4.0.1 |
+| `@workspacealberta/cordis-plugin-loader` | 1.0.0-rc.5 | 1.0.1 |
+| `@workspacealberta/cosmokit` | 1.8.1 | 1.8.2 |
+| `@workspacealberta/schemastery` | 3.18.0 | 3.18.1 |
+| `@workspacealberta/cordis-plugin-hmr` | 1.0.15 | 1.0.16 |
+| `@workspacealberta/cordis-plugin-include` | 1.0.4 | 1.0.5 |
+| `@workspacealberta/cordis-plugin-timer` | 1.1.2 | 1.1.3 |
+| `@workspacealberta/cordis-plugin-group` | 1.0.0 | 1.0.1 |
+| `@workspacealberta/cordis-plugin-logger-console` | 1.0.0 | 1.0.1 |
 
 Taking the last published version as the baseline is what survives a re-sync: upstream restoring `4.0.0-rc.8` after this repository published `4.0.1` would otherwise compute `4.0.1` again and collide. `--prerelease rc.1` publishes a rehearsal instead, which takes `--tag next` and leaves the release numbers free: a prerelease has lower precedence than the release it precedes, so `4.0.1` still follows `4.0.1-rc.1`. That ordering is computed here rather than read from `git tag --sort=v:refname`, which places a prerelease above its release.
 
@@ -78,7 +78,7 @@ Two registry behaviours shape how a publish is attempted. Writes are spaced by a
 
 Every reference to a workspace member uses `workspace:^`, so `pnpm pack` substitutes a range matching the target version: sibling `peerDependencies` follow the family version, and a reference to a vendored package follows that package's own line. The Landlock platform packages keep `workspace:*`, which publishes the exact version, because a platform package and its entry must agree exactly.
 
-`scripts/check-workspace-constraints.ts` requires the protocol, so a new package cannot reintroduce a hand-written range; the invariant-companion rule requires `workspace:^` for `@deepseek-ai/dsh-invariants` for the same reason.
+`scripts/check-workspace-constraints.ts` requires the protocol, so a new package cannot reintroduce a hand-written range; the invariant-companion rule requires `workspace:^` for `@workspacealberta/wa-invariants` for the same reason.
 
 ### An optional dependency is never loaded at module scope
 
@@ -96,7 +96,7 @@ The entity in this domain is a **release family**: a set of packages sharing one
 |---|---|
 | `ReleaseFamily` | a family's identity: member discovery, version baseline, tag prefix, packed-payload rule, installed entry |
 | `ReleaseMember` | one publishable package: directory, name, version, manifest |
-| `publishOrder` | topological order over the sections npm installs plus peer declarations, ties broken by package name; a cycle among installed dependencies is reported rather than resolved arbitrarily, and a peer edge no order can honour is dropped and named |
+| `publishOrder` | topological order over the sections npm installs plus peer declarations, ties broken by package name; a cycle among installed dependencies is reported rather than resolved arbitrarily; install edges are never dropped, including when a peer path would visit a consumer first; a peer edge no order can honour is dropped and named |
 | `pack` | packs a whole family into one directory and records the upload order |
 | `verify` | the family's version baseline, the publish order it prints in full, and — when publishing — that the run comes from that family's tag and its members are publishable |
 | `verify-packed-install` | installs the tarballs of one or more pack directories into a throwaway consumer and drives the installed executable |
@@ -146,7 +146,7 @@ This Agent Note replaces the version scheme and the release-set boundary in [art
 
 **Verifying only the packed install, with no local registry.** The reference flow unpacks tarballs into a tree and drives it with plain Node, which bypasses version-range resolution. Running a local registry in CI to cover that layer was rejected: artifact correctness is covered by existing tests, the publication path is exercised by the master rehearsal, and a pull request only needs to prove the release set packs. Installing from `file:` specifiers still exercises range resolution for every internal dependency.
 
-**Selecting a subset by entry closure.** Crawling `dependencies` from `@deepseek-ai/dsh` and `@deepseek-ai/dsh-web-frontend` yields 156 packages, 61 fewer than the whole set. But this repository's plugins are mounted by name from `cordis.yml` rather than imported: `vendor/cordis-plugin-group` and `vendor/cordis-plugin-logger-console` fall outside the dependency closure while being required at runtime. Selecting by code dependency fails as "the consumer installs it and it will not start", and it would need a standing proof that no mounted package was missed. Under a private scope the extra packages are invisible outside the organization. `python/`, the root `examples/`, `docs/`, and `website/` are not members.
+**Selecting a subset by entry closure.** Crawling `dependencies` from `@workspacealberta/wa` and `@workspacealberta/wa-web-frontend` yields 156 packages, 61 fewer than the whole set. But this repository's plugins are mounted by name from `cordis.yml` rather than imported: `vendor/cordis-plugin-group` and `vendor/cordis-plugin-logger-console` fall outside the dependency closure while being required at runtime. Selecting by code dependency fails as "the consumer installs it and it will not start", and it would need a standing proof that no mounted package was missed. Under a private scope the extra packages are invisible outside the organization. `python/`, the root `examples/`, `docs/`, and `website/` are not members.
 
 **Extending `scripts/publish-npm-baseline.ts`.** It is a local publication script that packs and publishes in one process, the opposite of separating credential-free packing from protected publication. Its verified parts — payload validation and installed-artifact probes — are reused so `pnpm run duplication` does not report clones.
 

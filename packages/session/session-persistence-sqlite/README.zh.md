@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-session-persistence-sqlite
+# @workspacealberta/wa-session-persistence-sqlite
 
 [English](README.md) | 中文
 

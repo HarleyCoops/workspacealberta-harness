@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-storage
+# @workspacealberta/wa-storage
 
 [English](README.md) | 中文
 

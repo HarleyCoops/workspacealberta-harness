@@ -1,6 +1,6 @@
 /** Deterministic keyless Agent Teams adapter for the real headless Loader snapshot. */
 
-import { CallId, LlmAdapter } from '@deepseek-ai/dsh-llm'
+import { CallId, LlmAdapter } from '@workspacealberta/wa-llm'
 
 let nextCall = 0
 

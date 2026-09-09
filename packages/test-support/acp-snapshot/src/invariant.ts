@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-acp-snapshot`.
- * @module @deepseek-ai/dsh-acp-snapshot/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-acp-snapshot`.
+ * @module @workspacealberta/wa-acp-snapshot/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-acp-snapshot'
+const PACKAGE_NAME = '@workspacealberta/wa-acp-snapshot'
 
 /** Cordis companion plugin name. */
 export const name = 'acp-snapshot-invariant'

@@ -1,8 +1,8 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import type { Context } from '@deepseek-ai/cordis'
-import { AttachmentError, AttachmentId } from '@deepseek-ai/dsh-attachment'
-import type { ImageAttachmentRef, SaveImageAttachment } from '@deepseek-ai/dsh-attachment'
-import type { Agent } from '@deepseek-ai/dsh-agent'
+import type { Context } from '@workspacealberta/cordis'
+import { AttachmentError, AttachmentId } from '@workspacealberta/wa-attachment'
+import type { ImageAttachmentRef, SaveImageAttachment } from '@workspacealberta/wa-attachment'
+import type { Agent } from '@workspacealberta/wa-agent'
 import {
   AcpContentError,
   admitAcpPrompt,

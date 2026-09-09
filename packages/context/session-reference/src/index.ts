@@ -2,17 +2,17 @@
  * Cross-session snapshot preparation. Hosts adapt mentions into structured
  * references; this service owns exact reads, projection, budgets, and durable context.
  *
- * @module @deepseek-ai/dsh-session-reference
+ * @module @workspacealberta/wa-session-reference
  */
 
-import { Context } from '@deepseek-ai/cordis'
-import z from '@deepseek-ai/schemastery'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
-import { Remote, TypertRemoteService } from '@deepseek-ai/dsh-typert-protocol'
-import { createUserMessage, freezeMessage } from '@deepseek-ai/dsh-llm'
-import type { ContentBlock, UserMessage } from '@deepseek-ai/dsh-llm'
-import type { SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionSurfaceSnapshot, SessionTitleObservationResult } from '@deepseek-ai/dsh-session-query'
+import { Context } from '@workspacealberta/cordis'
+import z from '@workspacealberta/schemastery'
+import type { Agent, PreStepDecision } from '@workspacealberta/wa-agent'
+import { Remote, TypertRemoteService } from '@workspacealberta/wa-typert-protocol'
+import { createUserMessage, freezeMessage } from '@workspacealberta/wa-llm'
+import type { ContentBlock, UserMessage } from '@workspacealberta/wa-llm'
+import type { SessionId } from '@workspacealberta/wa-session'
+import type { SessionSurfaceSnapshot, SessionTitleObservationResult } from '@workspacealberta/wa-session-query'
 import {
   DEFAULT_CANDIDATE_LIMIT,
   DEFAULT_MAX_REFERENCE_BYTES,
@@ -55,7 +55,7 @@ user explicitly repeats them.
 `
 const PROMPT_SUFFIX = '\n</referenced-sessions>'
 
-declare module '@deepseek-ai/cordis' {
+declare module '@workspacealberta/cordis' {
   interface Context {
     sessionReferenceResolver: SessionReferenceResolver
   }

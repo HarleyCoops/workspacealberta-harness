@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { SessionId } from '@deepseek-ai/dsh-session'
-import type { SessionEvent, SessionEventMap, SessionEventType } from '@deepseek-ai/dsh-session'
+import { SessionId } from '@workspacealberta/wa-session'
+import type { SessionEvent, SessionEventMap, SessionEventType } from '@workspacealberta/wa-session'
 import {
   applyTeamEvent,
   emptyTeamFoldState,

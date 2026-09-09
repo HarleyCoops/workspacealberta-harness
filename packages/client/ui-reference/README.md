@@ -1,4 +1,4 @@
-# `@deepseek-ai/dsh-client-ui-reference`
+# `@workspacealberta/wa-client-ui-reference`
 
 English | [中文](README.zh.md)
 
@@ -12,7 +12,7 @@ The `/client` export is the plugin body (`apply`/`inject`) only; candidate encod
 
 ## Model Experience
 
-Indirectly, through `@deepseek-ai/dsh-file-reference-local` for path guidance and `@deepseek-ai/dsh-session-reference` for prepared session snapshots.
+Indirectly, through `@workspacealberta/wa-file-reference-local` for path guidance and `@workspacealberta/wa-session-reference` for prepared session snapshots.
 
 #### KV Cache effect
 

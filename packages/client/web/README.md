@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-web
+# @workspacealberta/wa-client-web
 
 English | [中文](README.zh.md)
 

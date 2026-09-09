@@ -3,19 +3,19 @@
  * the cancellable generated Remote namespaces in parallel with deterministic
  * ordering and labels.
  *
- * @module @deepseek-ai/dsh-client-ui-reference/client
+ * @module @workspacealberta/wa-client-ui-reference/client
  */
 // Type-only: pulls the generated Remote API and ctx.remote merge through the Client assembly boundary.
-import type {} from '@deepseek-ai/dsh-api-remotes/client'
+import type {} from '@workspacealberta/wa-api-remotes/client'
 // Type-only: pulls the locale plugin's Context merge (ctx.locale).
-import type {} from '@deepseek-ai/dsh-client-locale/client'
-import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client'
+import type {} from '@workspacealberta/wa-client-locale/client'
+import type { ClientContext } from '@workspacealberta/wa-client-runtime/client'
 import type {
   ClientSessionContext, InputTriggerServiceContract, InputTriggerSource,
-} from '@deepseek-ai/dsh-client-ui-input-trigger/client'
-import { formatFileMention } from '@deepseek-ai/dsh-file-reference/grammar'
-import type { FileReferenceCandidate } from '@deepseek-ai/dsh-file-reference/types'
-import type { SessionReferenceMentionCandidate } from '@deepseek-ai/dsh-session-reference/types'
+} from '@workspacealberta/wa-client-ui-input-trigger/client'
+import { formatFileMention } from '@workspacealberta/wa-file-reference/grammar'
+import type { FileReferenceCandidate } from '@workspacealberta/wa-file-reference/types'
+import type { SessionReferenceMentionCandidate } from '@workspacealberta/wa-session-reference/types'
 import { en, NS, zh, type ReferenceKey } from './locales.ts'
 
 /** Required services: the trigger registry, the Remote namespaces, and the copy. */

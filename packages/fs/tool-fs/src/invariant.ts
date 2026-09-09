@@ -1,13 +1,13 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-tool-fs`.
- * @module @deepseek-ai/dsh-tool-fs/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-tool-fs`.
+ * @module @workspacealberta/wa-tool-fs/invariant
  */
 
 /* jscpd:ignore-start */
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-tool-fs'
+const PACKAGE_NAME = '@workspacealberta/wa-tool-fs'
 
 /** Cordis companion plugin name. */
 export const name = 'tool-fs-invariant'

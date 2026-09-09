@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-runtime",
+  "name": "@workspacealberta/wa-client-runtime",
   "description": "Client core services: SlotRegistry, SessionRuntime (scope tree + object layer)",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -32,9 +32,9 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-connection",
-        "@deepseek-ai/dsh-typert-registry",
-        "@deepseek-ai/dsh-api-remotes"
+        "@workspacealberta/wa-client-connection",
+        "@workspacealberta/wa-typert-registry",
+        "@workspacealberta/wa-api-remotes"
       ],
       "platform": "web",
       "immediately": true
@@ -46,44 +46,44 @@
     "zustand": "~4.4.7"
   },
   "peerDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-api-remotes": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/dsh-typert-registry": "workspace:^",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-host-apiproxy": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-llm-retry": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^"
+    "@workspacealberta/cordis": "workspace:^",
+    "@workspacealberta/wa-api-remotes": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-typert-protocol": "workspace:^",
+    "@workspacealberta/wa-typert-registry": "workspace:^",
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-attachment": "workspace:^",
+    "@workspacealberta/wa-client-connection": "workspace:^",
+    "@workspacealberta/wa-commands": "workspace:^",
+    "@workspacealberta/wa-host-apiproxy": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-llm-retry": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-projection": "workspace:^",
+    "@workspacealberta/wa-session-title": "workspace:^",
+    "@workspacealberta/wa-tools": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-api-remotes": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/dsh-typert-registry": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^",
+    "@workspacealberta/wa-api-remotes": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-timeout": "workspace:^",
+    "@workspacealberta/wa-typert-protocol": "workspace:^",
+    "@workspacealberta/wa-typert-registry": "workspace:^",
     "@types/react": "~18.3.1",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
+    "@workspacealberta/wa-client-ui-slots": "workspace:^",
     "react": "^18.2.0",
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-client-connection": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-host-apiproxy": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-llm-retry": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-projection": "workspace:^",
-    "@deepseek-ai/dsh-session-title": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^"
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-attachment": "workspace:^",
+    "@workspacealberta/wa-client-connection": "workspace:^",
+    "@workspacealberta/wa-commands": "workspace:^",
+    "@workspacealberta/wa-host-apiproxy": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-llm-retry": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-projection": "workspace:^",
+    "@workspacealberta/wa-session-title": "workspace:^",
+    "@workspacealberta/wa-tools": "workspace:^"
   },
   "files": [
     "lib/index.js",

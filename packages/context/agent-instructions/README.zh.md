@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-agent-instructions
+# @workspacealberta/wa-agent-instructions
 
 [English](README.md) | 中文
 

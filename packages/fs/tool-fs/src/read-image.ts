@@ -8,17 +8,17 @@
  * tool result enters durable session history, so emitting an image on a route
  * that cannot carry it would break that route's continuation. Unknown
  * capability therefore refuses instead of relying on the adapter guard.
- * @module @deepseek-ai/dsh-tool-fs/src/read-image
+ * @module @workspacealberta/wa-tool-fs/src/read-image
  */
 
 import { basename, extname } from 'node:path'
-import type { Context } from '@deepseek-ai/cordis'
-import { AttachmentError, AttachmentId } from '@deepseek-ai/dsh-attachment'
-import type { ImageAttachmentRef, ImageMediaType } from '@deepseek-ai/dsh-attachment'
-import type { ContentBlock } from '@deepseek-ai/dsh-llm'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { GenericCallView, ToolExecution } from '@deepseek-ai/dsh-tools'
-import type {} from '@deepseek-ai/dsh-fs'
+import type { Context } from '@workspacealberta/cordis'
+import { AttachmentError, AttachmentId } from '@workspacealberta/wa-attachment'
+import type { ImageAttachmentRef, ImageMediaType } from '@workspacealberta/wa-attachment'
+import type { ContentBlock } from '@workspacealberta/wa-llm'
+import { defineTool } from '@workspacealberta/wa-tools'
+import type { GenericCallView, ToolExecution } from '@workspacealberta/wa-tools'
+import type {} from '@workspacealberta/wa-fs'
 import { resolveRegularReadTarget } from './read-target.ts'
 
 /** Extensions `read_image` accepts; magic-byte validation at the attachment service stays authoritative. */

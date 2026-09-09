@@ -7,17 +7,17 @@
  */
 
 import { describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import AgentRegistry from '@deepseek-ai/dsh-agent'
-import type { Agent } from '@deepseek-ai/dsh-agent'
-import SessionStore from '@deepseek-ai/dsh-session'
-import SystemPrompt from '@deepseek-ai/dsh-system-prompt'
-import UserQuestionService from '@deepseek-ai/dsh-user-questions'
-import ApprovalService from '@deepseek-ai/dsh-user-approval'
-import type { ApprovalRequestId } from '@deepseek-ai/dsh-user-approval'
-import type { ApiProxy, MuxFrame, RpcRequest } from '@deepseek-ai/dsh-host-apiproxy/api'
-import type { RpcId } from '@deepseek-ai/dsh-host-apiproxy/api/rpc'
-import { RpcId as mintRpcId } from '@deepseek-ai/dsh-host-apiproxy/api/rpc'
+import { Context } from '@workspacealberta/cordis'
+import AgentRegistry from '@workspacealberta/wa-agent'
+import type { Agent } from '@workspacealberta/wa-agent'
+import SessionStore from '@workspacealberta/wa-session'
+import SystemPrompt from '@workspacealberta/wa-system-prompt'
+import UserQuestionService from '@workspacealberta/wa-user-questions'
+import ApprovalService from '@workspacealberta/wa-user-approval'
+import type { ApprovalRequestId } from '@workspacealberta/wa-user-approval'
+import type { ApiProxy, MuxFrame, RpcRequest } from '@workspacealberta/wa-host-apiproxy/api'
+import type { RpcId } from '@workspacealberta/wa-host-apiproxy/api/rpc'
+import { RpcId as mintRpcId } from '@workspacealberta/wa-host-apiproxy/api/rpc'
 import { createApiProxy } from '../src/api-proxy.ts'
 
 async function harness(): Promise<{ ctx: Context; api: ApiProxy }> {

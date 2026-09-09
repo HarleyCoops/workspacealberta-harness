@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-connection",
+  "name": "@workspacealberta/wa-client-connection",
   "description": "Wire consumer layer: HTTP-up/WebSocket-down client, ConnectionController dual streams with reconnect, and fixture api",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -38,7 +38,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^",
+    "@workspacealberta/schemastery": "workspace:^",
     "ws": "^8.21.0"
   },
   "files": [
@@ -48,26 +48,26 @@
     "lib/types/**/*.d.ts"
   ],
   "peerDependencies": {
-    "@deepseek-ai/dsh-host-webserver": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-host-apiproxy": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^"
+    "@workspacealberta/wa-host-webserver": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^",
+    "@workspacealberta/wa-attachment": "workspace:^",
+    "@workspacealberta/wa-host-apiproxy": "workspace:^",
+    "@workspacealberta/wa-commands": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-tools": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-host-webserver": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@workspacealberta/wa-host-webserver": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
     "@types/ws": "^8.18.1",
-    "@deepseek-ai/cordis": "workspace:^",
-    "@deepseek-ai/dsh-attachment": "workspace:^",
-    "@deepseek-ai/dsh-host-apiproxy": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-tools": "workspace:^"
+    "@workspacealberta/cordis": "workspace:^",
+    "@workspacealberta/wa-attachment": "workspace:^",
+    "@workspacealberta/wa-host-apiproxy": "workspace:^",
+    "@workspacealberta/wa-commands": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-tools": "workspace:^"
   }
 }

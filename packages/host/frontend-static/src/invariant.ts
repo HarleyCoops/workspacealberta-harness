@@ -1,12 +1,12 @@
 /**
- * Package-owned invariant companion for `@deepseek-ai/dsh-host-frontend-static`.
- * @module @deepseek-ai/dsh-host-frontend-static/invariant
+ * Package-owned invariant companion for `@workspacealberta/wa-host-frontend-static`.
+ * @module @workspacealberta/wa-host-frontend-static/invariant
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { InvariantInstaller } from '@deepseek-ai/dsh-invariants'
+import type { Context } from '@workspacealberta/cordis'
+import type { InvariantInstaller } from '@workspacealberta/wa-invariants'
 
-const PACKAGE_NAME = '@deepseek-ai/dsh-host-frontend-static'
+const PACKAGE_NAME = '@workspacealberta/wa-host-frontend-static'
 
 /** Cordis companion plugin name. */
 export const name = 'host-frontend-static-invariant'

@@ -14,14 +14,14 @@
  * serialization keeps a second request from interleaving with one in flight.
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Loader } from '@deepseek-ai/cordis-plugin-loader'
+import type { Context } from '@workspacealberta/cordis'
+import type { Loader } from '@workspacealberta/cordis-plugin-loader'
 import type {
   CordisDynamicPackageId, CordisDynamicPluginId, CordisDynamicPluginRunId, DynamicCordisPackage,
-} from '@deepseek-ai/dsh-api-remotes/client'
-import type { SessionId } from '@deepseek-ai/dsh-client-connection/client'
-import type { ClientModuleSystem } from '@deepseek-ai/dsh-client-modules/client'
-import type { SlotRegistry } from '@deepseek-ai/dsh-client-runtime/client'
+} from '@workspacealberta/wa-api-remotes/client'
+import type { SessionId } from '@workspacealberta/wa-client-connection/client'
+import type { ClientModuleSystem } from '@workspacealberta/wa-client-modules/client'
+import type { SlotRegistry } from '@workspacealberta/wa-client-runtime/client'
 import { DynamicCordisStyles, evaluateClientHalf, DYNAMIC_CLIENT_REDIRECTS } from './evaluator.ts'
 import type { DynamicCordisEvaluatedPlugin } from './evaluator.ts'
 import { dynamicCordisContext } from './guard.ts'

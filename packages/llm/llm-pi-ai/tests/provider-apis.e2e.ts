@@ -1,16 +1,16 @@
 import { readFile } from 'node:fs/promises'
 import { afterEach, describe, expect, it } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { AttachmentId, AttachmentStore } from '@deepseek-ai/dsh-attachment'
+import { Context } from '@workspacealberta/cordis'
+import { AttachmentId, AttachmentStore } from '@workspacealberta/wa-attachment'
 import type {
   ImageAttachmentLimits,
   ImageAttachmentRef,
   SaveImageAttachment,
   StoredImageAttachment,
-} from '@deepseek-ai/dsh-attachment'
-import LlmRuntime, { createUserMessage, CallId } from '@deepseek-ai/dsh-llm'
-import type { Message, ToolSchema } from '@deepseek-ai/dsh-llm'
-import * as LlmPiAi from '@deepseek-ai/dsh-llm-pi-ai'
+} from '@workspacealberta/wa-attachment'
+import LlmRuntime, { createUserMessage, CallId } from '@workspacealberta/wa-llm'
+import type { Message, ToolSchema } from '@workspacealberta/wa-llm'
+import * as LlmPiAi from '@workspacealberta/wa-llm-pi-ai'
 import type { PiAiReplayResponse } from '../src/replay.ts'
 import { assemble, type AssembledResult } from './assemble.ts'
 

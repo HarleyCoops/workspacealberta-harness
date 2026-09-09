@@ -5,6 +5,7 @@ import {
   countVisibleUnits,
   nextResolvingIssueStatus,
   parseReferences,
+  repositoryIdentity,
   retainIssueReferences,
   resolvingIssueStatusCommand,
   requiresPullRequestPolicy,
@@ -387,6 +388,20 @@ test('rejects multiple, unknown, legacy, and Issue-source PR labels', () => {
       reviewedPull(['kind/feature', 'area/web', 'source/internal-pr']),
     ).includes('source/* 仅用于 Issue：source/internal-pr'),
   )
+})
+
+test('reads the current GitHub repository from the environment', () => {
+  const previous = process.env.GITHUB_REPOSITORY
+  process.env.GITHUB_REPOSITORY = 'HarleyCoops/workspacealberta-harness'
+  try {
+    assert.deepEqual(repositoryIdentity(), {
+      organization: 'HarleyCoops',
+      repository: 'workspacealberta-harness',
+    })
+  } finally {
+    if (previous === undefined) delete process.env.GITHUB_REPOSITORY
+    else process.env.GITHUB_REPOSITORY = previous
+  }
 })
 
 test('allows missing Priority only when resolving Issues are also unprioritized', () => {

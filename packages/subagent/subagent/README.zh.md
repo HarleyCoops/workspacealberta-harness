@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-subagent
+# @workspacealberta/wa-subagent
 
 [English](README.md) | 中文
 

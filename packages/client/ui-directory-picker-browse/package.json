@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-client-ui-directory-picker-browse",
+  "name": "@workspacealberta/wa-client-ui-directory-picker-browse",
   "description": "In-app directory browsing surface: the workspace directory-flow owner rendering the host's listing and creation primitives",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -32,9 +32,9 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-client-runtime",
-        "@deepseek-ai/dsh-client-ui-workspace",
-        "@deepseek-ai/dsh-client-locale"
+        "@workspacealberta/wa-client-runtime",
+        "@workspacealberta/wa-client-ui-workspace",
+        "@workspacealberta/wa-client-locale"
       ],
       "platform": "web"
     }
@@ -48,23 +48,23 @@
     "clsx": "^2.0.0"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-client-locale": "workspace:^",
-    "@deepseek-ai/dsh-client-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-workspace": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-client-locale": "workspace:^",
+    "@workspacealberta/wa-client-runtime": "workspace:^",
+    "@workspacealberta/wa-client-ui-workspace": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-client-locale": "workspace:^",
-    "@deepseek-ai/dsh-client-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-test-runtime": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-primitives": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-slots": "workspace:^",
-    "@deepseek-ai/dsh-client-ui-workspace": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
+    "@workspacealberta/wa-client-locale": "workspace:^",
+    "@workspacealberta/wa-client-runtime": "workspace:^",
+    "@workspacealberta/wa-client-test-runtime": "workspace:^",
+    "@workspacealberta/wa-client-ui-primitives": "workspace:^",
+    "@workspacealberta/wa-client-ui-slots": "workspace:^",
+    "@workspacealberta/wa-client-ui-workspace": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
     "@testing-library/react": "^16.1.0",
     "@types/react": "~18.3.1",
-    "@deepseek-ai/cordis": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

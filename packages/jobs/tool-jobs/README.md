@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-tool-jobs
+# @workspacealberta/wa-tool-jobs
 
 English | [中文](README.zh.md)
 

@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-settings
+# @workspacealberta/wa-client-ui-settings
 
 [English](README.md) | 中文
 

@@ -1,10 +1,10 @@
 import { describe, expect, it, vi } from 'vitest'
-import { Context } from '@deepseek-ai/cordis'
-import { agentEvents, type Agent } from '@deepseek-ai/dsh-agent'
-import { CompactionId, compactCheckpointSource } from '@deepseek-ai/dsh-compaction'
-import { createUserMessage, CallId , createMessage, createToolResultMessage } from '@deepseek-ai/dsh-llm'
-import SessionStore, { Session, SessionId } from '@deepseek-ai/dsh-session'
-import SessionQueryEngine from '@deepseek-ai/dsh-session-query'
+import { Context } from '@workspacealberta/cordis'
+import { agentEvents, type Agent } from '@workspacealberta/wa-agent'
+import { CompactionId, compactCheckpointSource } from '@workspacealberta/wa-compaction'
+import { createUserMessage, CallId , createMessage, createToolResultMessage } from '@workspacealberta/wa-llm'
+import SessionStore, { Session, SessionId } from '@workspacealberta/wa-session'
+import SessionQueryEngine from '@workspacealberta/wa-session-query'
 import SessionReferenceResolver, {
   decodeSessionReferenceUri,
   encodeSessionReferenceUri,
@@ -12,7 +12,7 @@ import SessionReferenceResolver, {
   parseSessionReferenceText,
   type Config,
   type SessionReferenceErrorCode,
-} from '@deepseek-ai/dsh-session-reference'
+} from '@workspacealberta/wa-session-reference'
 import { stringifyTagSafeJson } from '../src/serialization.ts'
 
 class TestSessionQueryEngine extends SessionQueryEngine {

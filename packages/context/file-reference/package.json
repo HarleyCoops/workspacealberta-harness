@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-file-reference",
+  "name": "@workspacealberta/wa-file-reference",
   "description": "File-reference discovery contract and shared @file grammar",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -53,16 +53,16 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-typert-protocol": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-typert-protocol": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "dependencies": {
     "zod": "^4.4.3"

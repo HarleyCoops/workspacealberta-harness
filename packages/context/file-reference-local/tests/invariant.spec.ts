@@ -1,6 +1,6 @@
-import { Context } from '@deepseek-ai/cordis'
+import { Context } from '@workspacealberta/cordis'
 import { describe, expect, it } from 'vitest'
-import InvariantService from '@deepseek-ai/dsh-invariants'
+import InvariantService from '@workspacealberta/wa-invariants'
 import * as FileReferenceLocalInvariant from '../src/invariant.ts'
 
 describe('invariant companion', () => {

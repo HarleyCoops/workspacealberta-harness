@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-api-remotes",
+  "name": "@workspacealberta/wa-api-remotes",
   "description": "Remote BFF assembly and Host Agent/Session lookup policy",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -36,7 +36,7 @@
   "dsh": {
     "client": {
       "inject": [
-        "@deepseek-ai/dsh-api-gateway"
+        "@workspacealberta/wa-api-gateway"
       ],
       "platform": "web",
       "immediately": true
@@ -55,46 +55,46 @@
     "lib/types/**/*.d.ts"
   ],
   "dependencies": {
-    "@deepseek-ai/dsh-typert-protocol": "workspace:^"
+    "@workspacealberta/wa-typert-protocol": "workspace:^"
   },
   "peerDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-presets": "workspace:^",
-    "@deepseek-ai/dsh-api-gateway": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-cordis-host-runner": "workspace:^",
-    "@deepseek-ai/dsh-credentials": "workspace:^",
-    "@deepseek-ai/dsh-file-reference": "workspace:^",
-    "@deepseek-ai/dsh-goal": "workspace:^",
-    "@deepseek-ai/dsh-host-plugin-inventory": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-message-feedback": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-session-reference": "workspace:^",
-    "@deepseek-ai/dsh-settings": "workspace:^",
-    "@deepseek-ai/dsh-typert-registry": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-agent-presets": "workspace:^",
+    "@workspacealberta/wa-api-gateway": "workspace:^",
+    "@workspacealberta/wa-commands": "workspace:^",
+    "@workspacealberta/wa-cordis-host-runner": "workspace:^",
+    "@workspacealberta/wa-credentials": "workspace:^",
+    "@workspacealberta/wa-file-reference": "workspace:^",
+    "@workspacealberta/wa-goal": "workspace:^",
+    "@workspacealberta/wa-host-plugin-inventory": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-message-feedback": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-persistence": "workspace:^",
+    "@workspacealberta/wa-session-reference": "workspace:^",
+    "@workspacealberta/wa-settings": "workspace:^",
+    "@workspacealberta/wa-typert-registry": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-agent": "workspace:^",
-    "@deepseek-ai/dsh-agent-presets": "workspace:^",
-    "@deepseek-ai/dsh-api-gateway": "workspace:^",
-    "@deepseek-ai/dsh-commands": "workspace:^",
-    "@deepseek-ai/dsh-cordis-host-runner": "workspace:^",
-    "@deepseek-ai/dsh-credentials": "workspace:^",
-    "@deepseek-ai/dsh-file-reference": "workspace:^",
-    "@deepseek-ai/dsh-goal": "workspace:^",
-    "@deepseek-ai/dsh-host-plugin-inventory": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-llm": "workspace:^",
-    "@deepseek-ai/dsh-message-feedback": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-session-persistence": "workspace:^",
-    "@deepseek-ai/dsh-session-reference": "workspace:^",
-    "@deepseek-ai/dsh-settings": "workspace:^",
-    "@deepseek-ai/dsh-typert-registry": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-agent": "workspace:^",
+    "@workspacealberta/wa-agent-presets": "workspace:^",
+    "@workspacealberta/wa-api-gateway": "workspace:^",
+    "@workspacealberta/wa-commands": "workspace:^",
+    "@workspacealberta/wa-cordis-host-runner": "workspace:^",
+    "@workspacealberta/wa-credentials": "workspace:^",
+    "@workspacealberta/wa-file-reference": "workspace:^",
+    "@workspacealberta/wa-goal": "workspace:^",
+    "@workspacealberta/wa-host-plugin-inventory": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-llm": "workspace:^",
+    "@workspacealberta/wa-message-feedback": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-session-persistence": "workspace:^",
+    "@workspacealberta/wa-session-reference": "workspace:^",
+    "@workspacealberta/wa-settings": "workspace:^",
+    "@workspacealberta/wa-typert-registry": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   }
 }

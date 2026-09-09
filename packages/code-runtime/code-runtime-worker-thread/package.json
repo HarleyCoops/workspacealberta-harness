@@ -1,5 +1,5 @@
 {
-  "name": "@deepseek-ai/dsh-code-runtime-worker-thread",
+  "name": "@workspacealberta/wa-code-runtime-worker-thread",
   "description": "Worker-thread implementation of the DeepSeek Harness code-execution seam",
   "version": "0.1.0-rc.8",
   "publishConfig": {
@@ -36,20 +36,20 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "@deepseek-ai/dsh-code-runtime": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-code-runtime": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-timeout": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   },
   "dependencies": {
-    "@deepseek-ai/schemastery": "workspace:^"
+    "@workspacealberta/schemastery": "workspace:^"
   },
   "devDependencies": {
-    "@deepseek-ai/dsh-code-runtime": "workspace:^",
-    "@deepseek-ai/dsh-invariants": "workspace:^",
-    "@deepseek-ai/dsh-session": "workspace:^",
-    "@deepseek-ai/dsh-timeout": "workspace:^",
-    "@deepseek-ai/cordis": "workspace:^"
+    "@workspacealberta/wa-code-runtime": "workspace:^",
+    "@workspacealberta/wa-invariants": "workspace:^",
+    "@workspacealberta/wa-session": "workspace:^",
+    "@workspacealberta/wa-timeout": "workspace:^",
+    "@workspacealberta/cordis": "workspace:^"
   }
 }

@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-renderer
+# @workspacealberta/wa-client-ui-renderer
 
 English | [中文](README.zh.md)
 

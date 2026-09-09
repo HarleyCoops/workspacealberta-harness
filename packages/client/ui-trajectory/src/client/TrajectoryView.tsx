@@ -1,12 +1,12 @@
 /** Trajectory view: compact summary over a turn-aware event ledger. */
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
-import type { ConvViewProps } from '@deepseek-ai/dsh-client-ui-conversation/client'
-import type { InjectFace, PropsLocale } from '@deepseek-ai/dsh-client-ui-slots'
+import type { ConvViewProps } from '@workspacealberta/wa-client-ui-conversation/client'
+import type { InjectFace, PropsLocale } from '@workspacealberta/wa-client-ui-slots'
 import type {
   AssistantBlock, AssistantMessageNode, ConversationSnapshot,
   SnapshotStore,
-} from '@deepseek-ai/dsh-client-runtime/client'
+} from '@workspacealberta/wa-client-runtime/client'
 import {
   TrajectoryTable,
   type TrajectoryRequestNumber,

@@ -76,7 +76,7 @@
         "**/*.ts"
       ],
       "ignoreDependencies": [
-        "@deepseek-ai/.+"
+        "@workspacealberta/.+"
       ]
     },
     "packages/util/home": {
@@ -99,8 +99,8 @@
     },
     "packages/host/directory-picker-auto": {
       "ignoreDependencies": [
-        "@deepseek-ai/dsh-client-ui-directory-picker-browse",
-        "@deepseek-ai/dsh-client-ui-directory-picker-native"
+        "@workspacealberta/wa-client-ui-directory-picker-browse",
+        "@workspacealberta/wa-client-ui-directory-picker-native"
       ]
     },
     "packages/extensions/cordis-host-runner": {
@@ -152,7 +152,7 @@
         "tests/**/*.ts"
       ],
       "ignoreDependencies": [
-        "@deepseek-ai/dsh-api-gateway"
+        "@workspacealberta/wa-api-gateway"
       ]
     },
     "packages/client/ui-primitives": {
@@ -735,8 +735,8 @@
         "tests/**/*.ts"
       ],
       "ignoreDependencies": [
-        "@deepseek-ai/dsh-client-ui-primitives",
-        "@deepseek-ai/dsh-client-ui-slots",
+        "@workspacealberta/wa-client-ui-primitives",
+        "@workspacealberta/wa-client-ui-slots",
         "@types/react",
         "@types/react-dom",
         "react",
@@ -754,7 +754,7 @@
         "tests/**/*.ts"
       ],
       "ignoreDependencies": [
-        "@deepseek-ai/.+"
+        "@workspacealberta/.+"
       ]
     },
     "packages/client/modules": {
@@ -787,17 +787,17 @@
     },
     "packages/bundle/base": {
       "ignoreDependencies": [
-        "@deepseek-ai/.+"
+        "@workspacealberta/.+"
       ]
     },
     "packages/bundle/headless": {
       "ignoreDependencies": [
-        "@deepseek-ai/dsh-code-runtime-worker-thread"
+        "@workspacealberta/wa-code-runtime-worker-thread"
       ]
     },
     "packages/bundle/web-app": {
       "ignoreDependencies": [
-        "@deepseek-ai/.+"
+        "@workspacealberta/.+"
       ]
     }
   }

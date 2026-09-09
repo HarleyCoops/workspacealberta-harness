@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-locale
+# @workspacealberta/wa-client-locale
 
 English | [中文](README.zh.md)
 

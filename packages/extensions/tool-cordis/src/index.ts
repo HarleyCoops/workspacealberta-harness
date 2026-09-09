@@ -1,20 +1,20 @@
 /**
  * Model-facing Cordis runtime/package inspection, define, run, stop, and remove tools.
- * @module @deepseek-ai/dsh-tool-cordis
+ * @module @workspacealberta/wa-tool-cordis
  */
 
-import type { Context } from '@deepseek-ai/cordis'
-import type { Agent, PreStepDecision } from '@deepseek-ai/dsh-agent'
+import type { Context } from '@workspacealberta/cordis'
+import type { Agent, PreStepDecision } from '@workspacealberta/wa-agent'
 import {
   CordisDynamicPackageId, CordisDynamicPluginId,
-} from '@deepseek-ai/dsh-cordis-host-runner'
-import type { DynamicCordisReference } from '@deepseek-ai/dsh-cordis-host-runner'
-import { createUserMessage } from '@deepseek-ai/dsh-llm'
-import type { JsonValue } from '@deepseek-ai/dsh-session'
-import type { UserMessage } from '@deepseek-ai/dsh-session'
-import { defineTool } from '@deepseek-ai/dsh-tools'
-import type { ToolExecution } from '@deepseek-ai/dsh-tools'
-import type {} from '@deepseek-ai/dsh-system-prompt'
+} from '@workspacealberta/wa-cordis-host-runner'
+import type { DynamicCordisReference } from '@workspacealberta/wa-cordis-host-runner'
+import { createUserMessage } from '@workspacealberta/wa-llm'
+import type { JsonValue } from '@workspacealberta/wa-session'
+import type { UserMessage } from '@workspacealberta/wa-session'
+import { defineTool } from '@workspacealberta/wa-tools'
+import type { ToolExecution } from '@workspacealberta/wa-tools'
+import type {} from '@workspacealberta/wa-system-prompt'
 import { missingServices, providedServices } from './inspect.ts'
 import {
   presentDefineCall, presentInspectListCall, presentInspectQueryCall, presentInspectSelfCall, presentRunCall,

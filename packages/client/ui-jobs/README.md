@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-client-ui-jobs
+# @workspacealberta/wa-client-ui-jobs
 
 English | [中文](README.zh.md)
 

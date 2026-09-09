@@ -1,4 +1,4 @@
-# @deepseek-ai/dsh-workspace
+# @workspacealberta/wa-workspace
 
 English | [中文](README.zh.md)
 
