@@ -16,6 +16,12 @@ profile's credential references; nothing durable lives outside
   path — service or manual — resolves the same home.
 - Logs: `journalctl --user -u workspacealberta-harness -f`.
 
+## Remote support / desk rebuild
+
+RaspberryPiBot / Litter-style remote support rebuilds a customer desk
+checkout with `bash scripts/wa-desk-rebuild.sh` from the repo root (no
+inline `pnpm install`).
+
 ## Home layout (`~/.workspaceAlberta`)
 
 | Path | Contents |
