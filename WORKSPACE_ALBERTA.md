@@ -9,6 +9,8 @@ DSH_CLIENT_BUILD_PROFILE=official DSH_CLIENT_TITLE=workspaceAlberta pnpm run bui
 DSH_TELEMETRY_DISABLED=1 pnpm wa --profile web --patch workspace-alberta.patch.yml --host 127.0.0.1 --port 3081 --no-open
 ```
 
+Remote support / desk rebuild: RaspberryPiBot or Litter rebuilds a customer desk Pi over Tailscale with `bash scripts/wa-desk-rebuild.sh` from the repo root (install + official workspaceAlberta client build; prints `BUILD_OK`).
+
 The Cohere route reads `COHERE_API_KEY`. Composio is not part of this harness: it is the WorkspaceAlberta connection layer for other products, never a tool-calling surface here and never bridged to the workspaceAlberta server. The harness's model-facing MCP surface is Linear plus the direct workspaceAlberta endpoint, mounted through the upstream streamable-HTTP MCP client. No keys belong in this repository.
 
 The deployment patch disables the upstream DeepSeek model adapter, DeepSeek-backed web search, the generic Web tool rows that depend on that search provider, and session OTLP telemetry. The source tree contains no `.cn` update or download callback; upstream Chinese-language documentation remains as legal and technical documentation rather than shipped runtime behavior.
